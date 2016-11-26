@@ -73,13 +73,14 @@
 		</div>
 		
 		<div class="col-sm-4 col-md-4 col-lg-4 information-entry">
-			<div class="product-detail-box">				
+			<div id="site_cart" class="product-detail-box cart-load">				
 				<h1 class="product-title">[% hilt.product_item.title %]</h1>
 				[% IF hilt.product_item.feature.Бренд %]
 				<h3 class="product-subtitle">[% hilt.product_item.feature.Бренд.0.value %]</h3>
 				[% END %]
 				<div class="row">
-					<div class="col-md-4 product-description detail-info-entry">Код: p[% hilt.product_item.product_id %]</div>
+					<div class="col-md-4 product-description detail-info-entry">Код продукта: p[% hilt.product_item.product_id %]</div>
+					<div class="product-id" style="display: none;">[% hilt.product_item.product_id %]</div>
 					[% IF hilt.product_item.quantity %]
 					<div class="col-md-4 product-description detail-info-entry text-success">
 						<i class="fa fa-check" aria-hidden="true"></i> В наличии
@@ -143,10 +144,11 @@
 					<div class="entry number-plus">&nbsp;</div>
 				</div>
 				[% END %]
+			
 				
 				[% IF hilt.product_item.quantity %]
 				<div class="detail-info-entry">
-					<a class="button style-10"><i class="fa fa-shopping-cart fa-3"></i> В корзину</a>
+					<a class="button style-10 shopping-cart-add"><i class="fa fa-shopping-cart fa-3"></i> В корзину</a>
 					<a class="button style-11"><i class="fa fa-heart"></i> В закладки</a>										
 					<div class="clear"></div>
 				</div>
@@ -264,10 +266,21 @@
 	</div>
 </div>
 
+
 [% IF 1==0 %]
 [% PROCESS pages/default/blocks/related_product_col4.html.tt %]
 [% END %]
 			
 [% PROCESS pages/default/footer.html.tt %]
+
+[% IF hilt.product_item.feature.Размер %]
+
+<script>
+$( document ).ready(function() {
+	$('div.quantity-selector').hide();
+});
+</script>
+[% END %]
+
 
 [% END %]

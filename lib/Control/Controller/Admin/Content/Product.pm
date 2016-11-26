@@ -19,8 +19,8 @@ sub list {
 	$m = $c->model('Image');
 	
 	for my $item ( @{$res->{'data'}} ){
-		my $img = $m->product_list( {product_id => $item->{'product_id'} } );
-		$item->{'images'} = $img->{'data'};
+		my $img = $m->get_product_image( {product_id => $item->{'product_id'} } );
+		$item->{'images'} = $img;
 	}
 
 	$c->stash->{ $c->app->config->{'project_name'} }->{'admin'}->{'products'} = $res;
@@ -47,9 +47,7 @@ sub item {
 	$res->{'images'} = $img;
 	
 	$c->stash->{ $c->app->config->{'project_name'} }->{'admin'}->{'product_item'} = $res;
-	
-	#say Dumper(  $res );
-	
+		
 	$c->render( template => 'admin/content/product/item' );	
 }
 

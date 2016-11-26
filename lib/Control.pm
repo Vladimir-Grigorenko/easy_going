@@ -43,10 +43,12 @@ sub startup {
 	$self->plugin('Control::Plugin::Admin');
 	$self->plugin('Control::Plugin::Image');
 	
+	$self->plugin('Control::Plugin::Cart');
+	$self->plugin('Control::Plugin::Auth');
+	
 	$self->plugin('Model');
 	$self->plugin('AccessControl');
 	$self->plugin('RemoteAddr');
-	$self->plugin('DBICAdmin');
 
 	#$self->plugin('cache-page' => $self->app->config->{'cache'}->{'page'} );
 
@@ -91,6 +93,22 @@ sub startup {
 	);		
 
 	$self->plugin( 'tt_renderer' => $self->app->config->{'tt_renderer'} );
+
+	$self->hook( after_dispatch => sub {
+		my $c = shift;
+		
+		# Проверка на csrf		
+		if( $c->req->method !~ /get/i ) {
+			my $session = $c->stash('session');
+			my $csrf = $c->param('csrf');
+
+			if( ( $session && !$session->{'csrf'} ) || ( $csrf ne $session->{'csrf'} ) ){
+				$c->app->log->debug("CSRFProtect: Wrong CSRF protection token for [".$c->req->url->to_string."]!");
+				return $c->render( status => 403, text => "Forbidden!" );
+			}
+		}
+		
+	});
 	
 	# $c->render() - нельзя делать глубокая рекурсия  
 	$self->hook( before_render => sub {		
@@ -115,7 +133,7 @@ sub startup {
 			my $w = shift or return undef;
 			my $m = $c->model('Image');
 			my $path = '';
-			my $res = $m->get_product_image({ product_id => $product_id, image_id => $id, w=>$w });
+			my $res = $m->get_product_image({ product_id => $product_id, image_id => $id, w => $w });
 			return $res;
 		};
 		
@@ -126,8 +144,8 @@ sub startup {
 			$text =~s/[^0-9A-Z\s]//ig;
 			$text =~s/\s+/-/ig;
 			return lc( $text );
-		};
-		
+		};		
+			
 		return 1;
 	});
 	
@@ -135,21 +153,16 @@ sub startup {
     $self->hook(
         before_routes => sub {
             my ($c) = @_;
-
-			my $token = $c->req->headers->header('X-CSRF-Token') || $c->param('csrf');
-			my $user = $c->session( $self->config->{'session'}->{'cookie_name'} );
 			my $path = $c->req->url->to_string;
-	
-			if ( $token && $token ne $user->{'csrf'} ) {
-				
-				$c->app->log->debug("CSRFProtect: Wrong CSRF protection token for [$path]!");
-				return $c->render( status => 403, text => "Forbidden!" );
-			}			
 
-			# Убираем пустые слеши в конце url
+			# SEO - Убираем пустые слеши в конце url
 			if( $path=~/^(.*)?(\/+)$/ ){
 				(my $find = $1)=~s/\/+$//;
 				return $c->redirect_to( $find ) if $find;
+			}
+			
+			if( $c->param('page') && $c->param('page') == 1 ){
+				return $c->redirect_to( $c->req->url->path );
 			}
 				
             return 1;
@@ -167,7 +180,7 @@ sub startup {
 			allow => 'all'
 		]
 	)->over( session => 1 );
-	
+		
 	$r->get('/popup/:item' => [ format => ['html','json'] ] )->to('popup#item');
 	$r->get('/simg/*item' => [ format => ['jpg','jpeg','gif','png'] ] )->to('image#get');
 		
@@ -177,15 +190,18 @@ sub startup {
 	$r->get('/compare')->to('compare#default');
 	
 	$r->get('/events/*path' => [ format => ['html'] ] )->to('event#item');
+	$r->get('/events/*path' )->to('event#item');
 	$r->get('/events')->to('event#default');
 	
-	$r->get('/profile/*html' => [ format => ['html'] ])->to('profile#default');
-	$r->get('/profile')->to('profile#default')->name('profile');
-	$r->post('/profile/info/update')->to('profile#info_update');
+	$r->get('/profile/*html' => [ format => ['html'] ])->over( is_auth => 1)->to('profile#default');
+	$r->get('/profile')->to('profile#default')->over( is_auth => 1 )->name('profile');
+	$r->get('/profile/order')->over( is_auth => 1 )->to('profile#order');
 	
-	$r->get('/login/confirm')->to('system#login_confirm');
+	$r->get('/login/confirm')->to('api-user#login_confirm');
 	$r->get('/login/login-confirm-error')->to('system#login_confirm_error');
-	$r->get('/logout')->to('system#logout');
+	$r->get('/logout')->over( is_auth => 1 )->to('system#logout');
+	
+	$r->any('/checkout')->to('checkout#item');
 		
 	
 	####################
@@ -193,7 +209,7 @@ sub startup {
 		$api->any('/test')->to( cb => sub {
 			my $c = shift;
 			my $data = $c->c_init();
-			say Dumper( $data, $c->req->json );
+			#say Dumper( $data, $c->req->json );
 			
 			$c->render( json => $data );
 		});
@@ -235,15 +251,16 @@ sub startup {
 		$api->put('/content/feature')->to('api-content-feature#update');
 		$api->post('/content/feature')->to('api-content-feature#set');
 		$api->get('/content/feature/list')->to('api-content-feature#list');
-		$api->get('/content/feature/:id' => [ id => qr/^\d+$/ ] )->to('api-content-feature#get');
-		
-		$api->any('/content/feature2product/:id')->to('api-content-feature#set_feature2product');
-		
+		$api->get('/content/feature/:id' => [ id => qr/^\d+$/ ] )->to('api-content-feature#get');	
+		$api->any('/content/feature2product/:id')->to('api-content-feature#set_feature2product');		
 		# images
 		$api->delete('/image/product/:id')->over( is_admin => 1 )->to('api-image-product#delete');
-		$api->post('/image/product/:id' )->to('api-image-product#set');
+		$api->post('/image/product/:id' )->over( is_admin => 1 )->to('api-image-product#set');
 		$api->get('/image/product/list/:id' )->over( is_admin => 1 )->to('api-image-product#list');
 		$api->get('/image/product/:id' )->to('api-image-product#get');
+		# cart
+		$api->any('/cart/list')->to('api-cart#list');
+
 	
 	####################
 	# admin
@@ -277,7 +294,6 @@ sub startup {
 	$r->get('/product/:item' => [ format => ['html'] ] )->to('catalog#item');
 	$r->get('/*path' => [ format => 'html' ] )->to('catalog#default');
 	$r->get('/*path')->to('catalog#default');
-	#$r->get('/atalog')->to('catalog#default');
 	
 	$r->get('/*html' => [ format => ['html'] ])->to('pages#static');	
 	$r->any('/')->to('pages#index')->name('index');

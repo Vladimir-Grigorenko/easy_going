@@ -12,7 +12,7 @@ sub _init {
 	$id = $init->{'id'};
 	$data = $init->{'data'};
 	$files = $c->req->every_upload('files');
-	$tmp_path_dir = $c->app->config->{'image'}->{'tmp_path_dir'};	
+	$tmp_path_dir = $c->app->config->{'image'}->{'tmp_path_dir'};
 	$m && $files ? 1 : 0;
 }
 

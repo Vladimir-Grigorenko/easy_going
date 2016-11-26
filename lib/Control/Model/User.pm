@@ -2,6 +2,7 @@ package Control::Model::User;
 use Mojo::Base 'MojoX::Model';
 use Try::Tiny;
 use Digest::MD5 qw(md5_hex);
+use Storable qw(freeze thaw);
 use Data::Dumper;
 
 my ($r,$count,$rs,$exception, $id) = ('',0,0,'');
@@ -12,9 +13,10 @@ sub _init {
 }
 
 sub get {
-	my ($model, $db, $uid) = @_;
+	my ($model, $uid) = @_;
+	my $db = $model->app->db;
 	
-	$r = $db->resultset('User')->find( { user_id => $uid }  );  
+	$r = $db->resultset('VUserInfo')->find( { user_id => $uid }  );  
 	my %h = ();
 	for my $key ( $r ? $r->columns : () ) {
 		$h{$key} = $r->$key;
@@ -23,8 +25,9 @@ sub get {
 }
 
 sub set {
-	my ( $model, $c, $db, $data ) = @_;
-	my (@data, @res, %data) = ((),(),());  
+	my ( $model, $data ) = @_;
+	my (@data, @res, %data) = ((),(),());
+	my $db = $model->app->db;
 	@data = @{ $data };
 	
 	$db->storage->txn_begin();
@@ -36,7 +39,7 @@ sub set {
 				next; 
 			}
 			# email valid
-			unless( $c->mailrfc( $item->{'mail'} ) ){
+			unless( $model->app->mailrfc( $item->{'mail'} ) ){
 				push @res, { item => $item,  message => "mail not valid"};
 				next;         
 			}
@@ -62,8 +65,9 @@ sub set {
 }
 
 sub update {
-	my ( $model, $db, $data ) = @_;
-	my (@data, @res) = ((),());  
+	my ( $model, $data ) = @_;
+	my (@data, @res) = ((),());
+	my $db = $model->app->db;
 	@data = @{ $data };
   
 	$db->storage->txn_begin();
@@ -97,8 +101,9 @@ sub update {
 }
 
 sub remove {
-	my ( $model, $db, $data ) = @_;
-	my (@data, @res) = ((),());  
+	my ( $model, $data ) = @_;
+	my (@data, @res) = ((),());
+	my $db = $model->app->db;
 	@data = @{ $data };
   
 	$db->storage->txn_begin();
@@ -128,7 +133,8 @@ sub remove {
 }
 
 sub list {
-	my ($model, $db, $page, $rows ) = @_;
+	my ($model, $page, $rows ) = @_;
+	my $db = $model->app->db;
 	$r = $db->resultset('User')->search( undef,{
 		rows => $rows,
 		page => $page
@@ -151,7 +157,8 @@ sub list {
 }
 
 sub login {
-	my ($model, $db, $c, $mail ) = @_;
+	my ($model, $mail) = @_;
+	my $db = $model->app->db;
 	my $h = {} ;
 	$r = $db->resultset('User')->find( { mail => $mail } );
 	if( $r && $r->access ) {
@@ -167,29 +174,31 @@ sub login {
 }
 
 sub confirm_login_mail {
-	my ($model, $db, $c, $user, $mail ) = @_;
+	my ($model, $user, $mail, $attr ) = @_;
+	my $db = $model->app->db;
 	$db->storage->txn_begin();
 	try {	
 		$r = $db->resultset('User2session')->update_or_create({
 			session => $user->{'sid'},
 			user_id => $user->{'user_id'},
-			user_agent_md5 => md5_hex( scalar $c->req->headers->user_agent ),
-			user_agent => $c->req->headers->user_agent,
-			ip => $c->remote_addr
+			
+			user_agent_md5 => md5_hex( scalar $attr->{'user_agent'} ),
+			user_agent => $attr->{'user_agent'},
+			ip => $attr->{'ip'}
 		});
 		$db->storage->txn_commit();
-		return 1;
+		return $r;
 	}
 	catch{
 		my $err = $_;
 		$db->storage->txn_rollback();
 		return undef, $err;
 	};
-	$r;
 }
 
 sub login_confirm {
-	my ($model, $db, $c, $code ) = @_;
+	my ($model,$code) = @_;
+	my $db = $model->app->db;
 	my $h = {};
 	$db->storage->txn_begin();
 	try {		
@@ -226,6 +235,58 @@ sub login_confirm {
 		return undef, $err;
 	};		
 
+}
+
+sub get_session2serialize {
+	my ($model, $data) = @_;
+	my $db = $model->app->db;
+	my $r = $db->resultset('Session2serialize')->find( {
+		session => $data->{'session'},
+		name => $data->{'name'}
+	} );
+	my %h = ();
+	for my $key ( $r ? $r->columns : () ) {
+		$h{$key} = $r->$key;
+	}
+	$h{'data'} = thaw $h{'data'};
+	$h{'data'} ? $h{'data'} : {};
+}
+
+sub set_session2serialize {
+	my ($model, $data) = @_;
+	my $db = $model->app->db;
+	$db->storage->txn_begin();
+	$data->{'data'} = freeze $data->{'data'};
+	try {
+		my $r = $db->resultset('Session2serialize')->find( {
+			session => $data->{'session'},
+			name => $data->{'name'}
+		});
+		if( $r ){
+			$r->data( $data->{'data'} );
+			$r->date_update(\'NOW()');
+			$r->update();
+		}
+		else{
+			$r = $db->resultset('Session2serialize')->create({
+				session => $data->{'session'},
+				name => $data->{'name'},
+				data => $data->{'data'}
+			});
+		}
+		$db->storage->txn_commit();
+		my %h = ();
+		for my $key ( $r ? $r->columns : () ) {
+			$h{$key} = $r->$key;
+		}
+		$h{'data'} = thaw $h{'data'};
+		return \%h;
+	}
+	catch{
+		my $err = $_;
+		$db->storage->txn_rollback();
+		return undef, $err;		
+	};	
 }
 
 1;

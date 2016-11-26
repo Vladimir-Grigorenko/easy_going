@@ -53,12 +53,6 @@ sub item {
 	my $sale = $m->product_is_sale( $res->{'product_id'} );
 	if( $sale ){
 		$res->{'sale'} = $sale;
-		my $price = $m->get_product_price( $sale->{'sale_id'}, $res->{'product_id'} );
-		if( $price ){
-			$res->{'price'}->{'prev'} = $res->{'price'}->{'current'};
-			$res->{'price'}->{'current'} = $price->{'price'};
-			$res->{'price'}->{'percent'} = 100 - int( $res->{'price'}->{'current'} * 100 / $res->{'price'}->{'prev'});
-		}
 	}
 		
 	$c->stash->{ $c->config->{'project_name'} }->{'product_item'} =	$res;
@@ -78,6 +72,7 @@ sub portal {
 	$site->{'title'} = $cat->{'title'} . " купить в интернет-магазине | hilt.com.ua";
 		
 	# Товары
+	
 	my $m = $c->model('Product');
 	my $res  = $m->get_product2category(
 		{
@@ -106,12 +101,6 @@ sub portal {
 		my $sale = $m->product_is_sale( $item->{'product_id'} );
 		if( $sale ){
 			$item->{'sale'} = $sale;
-			my $price = $m->get_product_price( $sale->{'sale_id'}, $item->{'product_id'} );
-			if( $price ){
-				$item->{'data'}->{'price'}->{'prev'} = $item->{'data'}->{'price'}->{'current'};
-				$item->{'data'}->{'price'}->{'current'} = $price->{'price'};
-				$item->{'data'}->{'price'}->{'percent'} = 100 - int( $item->{'data'}->{'price'}->{'current'} * 100 / $item->{'data'}->{'price'}->{'prev'});
-			}
 		}
 	}
 	

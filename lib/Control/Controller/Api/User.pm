@@ -8,12 +8,11 @@ sub _init {
 	my $c = shift;
 	$m = $c->model('user');
 	$init = $c->c_init();
-	$db = $c->db;
 	$page = $init->{'page'};
 	$rows = $init->{'rows'};
 	$id = $init->{'id'};
 	$data = $init->{'data'};
-	$m && $db ? 1 : 0;
+	$m ? 1 : 0;
 }
 
 sub get {
@@ -21,7 +20,7 @@ sub get {
 	return $c->reply->not_found unless $c->_init();  
 	return $c->reply->not_found unless $id;
 	
-	my $h = $m->get( $db, $id );
+	my $h = $m->get( $id );
 	
 	$c->render( json => $h );
 }
@@ -32,7 +31,7 @@ sub update {
 	return $c->render( json => { failue => \1, message => 'Нет данных' } ) unless $data;
 	return $c->render( json => { failue => \1, message => 'Неправильная структура json' } ) if ref $data ne 'ARRAY';
 	
-	my ( $h, $error ) = $m->update( $db, $data );  
+	my ( $h, $error ) = $m->update($data );  
 	$c->render( json => $h ? { success => \1, data => $h } : { failue => \1, message => $error } );
 }
 
@@ -43,7 +42,7 @@ sub set {
 	return $c->render( json => { failue => \1, message => 'Неправильная структура json' } ) if ref $data ne 'ARRAY';
 
 	
-	my ( $h, $error ) = $m->set( $c, $db, $data );
+	my ( $h, $error ) = $m->set( $data );
 	$c->render( json => $h ? { success => \1, data => $h } : { failue => \1, message => $error } );  
 }
 
@@ -53,14 +52,14 @@ sub remove {
 	return $c->render( json => { failue => \1, message => 'Нет данных' } ) unless $data;
 	return $c->render( json => { failue => \1, message => 'Неправильная структура json' } ) if ref $data ne 'ARRAY';
 
-	my ( $h, $error ) = $m->remove( $db, $data );
+	my ( $h, $error ) = $m->remove( $data );
 	$c->render( json => $h ? { success => \1, data => $h } : { failue => \1, message => $error } );
 }
 
 sub list {
 	my $c = shift;
 	return $c->reply->not_found unless $c->_init();	
-	$c->render( json => $m->list( $db, $page, $rows ) );  
+	$c->render( json => $m->list( $page, $rows ) );  
 }
 
 sub login {
@@ -69,28 +68,38 @@ sub login {
 	return $c->render( json => { failue => \1, message => 'Нет данных' } ) unless $data;
 	return $c->render( json => { failue => \1, message => 'Не все данные' } ) unless $data->{'mail'};
 	return $c->render( json => { failue => \1, message => 'Проверьте написание Вашего E-mail...' } ) unless $c->mailrfc( $data->{'mail'} );	
-	
-	my $h = $c->session( $c->app->config->{'session'}->{'cookie_name'} );	
-	
-	my($u,$err) = $m->login( $db, $c, $data->{'mail'} );	
-	%{$u} = ( %{$h}, %{$u} ) if $u && %{$u};
-	
-	if( $u && %{$u} && $u->{'user_id'} ){
 		
-		my ($r, $err) = $m->confirm_login_mail( $db, $c, $u, $data->{'mail'} );
+	my($u,$err) = $m->login( $data->{'mail'} );
+	my $sesion = $c->stash('session');
+	
+	if( $u && %{$u} ){
+		$u->{'sid'} = $sesion->{'sid'};
+		
+		my ($r, $err) = $m->confirm_login_mail( $u, $data->{'mail'}, {
+			user_agent_md5 => $c->req->headers->user_agent,
+			user_agent => $c->req->headers->user_agent,
+			ip => $c->remote_addr
+		} );
+		
 		if( $r ){
 			$c->mail( {
 				to => $data->{'mail'} ,
 				subject => 'HILT - авторизация',
-				mess=> 'Для входа в личный кабинет, перейдите по ссылке: https://127.0.0.1/login/confirm?code='.$u->{'sid'}
+				mess=> 'Для входа в личный кабинет, перейдите по ссылке: '.$c->config->{'site_url'}.'/login/confirm?code='.$u->{'sid'}
 			});	
 		}
 		else{
-			return $c->render( json => { failue => \1, message => $err } );
+			return $c->render( json => {
+				failue => \1,
+				message => $err
+			} );
 		}
 	}
 	else{
-		return $c->render( json => { failue => \1, message => 'Вы не зарегистрированы.' } );
+		return $c->render( json => {
+			failue => \1,
+			message => 'Вы не зарегистрированы.'
+		} );
 	}
 	$c->render( json => $err ? { failue => \1, message => $err } : { success=> \1 , message => 'Авторизационное письмо ушло на Ваш E-mail.'} );
 }
@@ -98,22 +107,24 @@ sub login {
 sub login_confirm {
 	my $c = shift;
 	return $c->reply->not_found unless $c->_init();
-	return $c->render( json => { failue => \1, message => 'Нет параметров' } ) unless $data && $data->{'code'};
+	return $c->render( json => {
+		failue => \1,
+		message => 'Нет параметров'
+	} )
+	unless $data && $data->{'code'};
 	
-	my $h = $c->session( $c->app->config->{'session'}->{'cookie_name'} );
-	my($u,$err) = $m->login_confirm( $db, $c, $data->{'code'} );
+	my($u,$err) = $m->login_confirm( $data->{'code'} );
+	
 
 	if( $u && %{$u} ){
-		
-		my %all = ( %{$h}, %{$u} );
-		$u->{'sid'} = $h->{'sid'};
-		$u->{'csrf'} = $h->{'csrf'};
-		say Dumper('confirm',$u);
-		$c->session( { $c->app->config->{'session'}->{'cookie_name'} => $u } );
-
+		$c->add2session('user_id',$u->{'user_id'} );
+		return $c->redirect_to('profile');
+	}
+	else{
+		$c->flash({ error => $err });
+		return $c->redirect_to('login-confirm-error');		
 	}
 	
-	$c->render( json => $u ? { success=> \1, message => $u } :  { failue => \1, message => $err } );	
 }
 
 sub logout {

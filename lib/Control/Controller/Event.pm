@@ -19,7 +19,11 @@ sub default {
   my $res = $m->list( $init->{'page'}, $init->{'rows'} );
 
   $c->stash->{ $c->config->{'project_name'} }->{'event'} = $res;
-  $c->stash->{ $c->config->{'project_name'} }->{'event_pagination'} = $c->pagination( $init->{'page'} || 1, $res->{'count'}, { round => 1 });
+  $c->stash->{ $c->config->{'project_name'} }->{'event_pagination'} = $c->pagination(
+      $init->{'page'},
+      $c->count_pages( $res->{'count'} ),
+      { round => 0 }
+  );
   
   $c->stash->{ $c->config->{'project_name'} }->{'breadcrumbs'} = [
     {
@@ -57,6 +61,9 @@ sub item {
     {
       url => '/events',
       title => 'Акции'
+    },
+    {
+      title => $res->{'title'}
     }
   ];
   
@@ -69,8 +76,12 @@ sub item {
     # Картинки
     $m = $c->model('Image');	
     for my $item ( @{$res2->{'data'}} ){		
-      my $img = $m->product_list( {product_id => $item->{'product_id'} } );
-      $item->{'images'} = $img->{'data'};
+      
+      my $img = $m->get_product_image( {
+        product_id => $item->{'product_id'}
+      } );
+      
+      $item->{'images'} = $img;
     }	
     
     # Характеристики
@@ -86,19 +97,16 @@ sub item {
       my $sale = $m->product_is_sale( $item->{'product_id'} );
       if( $sale ){
         $item->{'sale'} = $sale;
-        my $price = $m->get_product_price( $sale->{'sale_id'}, $item->{'product_id'} );
-        if( $price ){
-          $item->{'data'}->{'price'}->{'prev'} = $item->{'data'}->{'price'}->{'current'};
-          $item->{'data'}->{'price'}->{'current'} = $price->{'price'};
-          $item->{'data'}->{'price'}->{'percent'} = 100 - int( $item->{'data'}->{'price'}->{'current'} * 100 / $item->{'data'}->{'price'}->{'prev'});
-        }
-        #say Dumper( $item->{'product_id'}, $price , $item);
       }
     }
     
     $c->stash->{ $c->config->{'project_name'} }->{'products'} = $res2;
-    $c->stash->{ $c->config->{'project_name'} }->{'products_pagination'} = $c->pagination( $init->{'page'} || 1, $res2->{'count'}, { round => 1 });
-        
+    $c->stash->{ $c->config->{'project_name'} }->{'products_pagination'} = $c->pagination(
+        $init->{'page'},
+        $c->count_pages( $res2->{'count'} ),
+        { round => 0 }
+    );
+            
   }
   else{
     return $c->reply->not_found;

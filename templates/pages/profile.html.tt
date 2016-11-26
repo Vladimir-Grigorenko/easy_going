@@ -1,7 +1,39 @@
 [% PROCESS pages/default/header.html.tt %]
 <div class="information-blocks">
-	<div class="container-404">
-		<div class="title">Profile</div>
+	<form action="/profile" method="POST">
+    <div class="row">
+        <div class="col-md-5 information-entry">
+            
+                            <h3 class="cart-column-title">Информация о клиенте</h3>
+                                <label>Имя <span>*</span></label>
+                                <input type="text" value="[% user.first_name %]" placeholder="Имя" class="simple-field size-1 simple-field">
+                                <label>Фамилия <span>*</span></label>
+                                <input type="text" value="[% user.last_name %]" placeholder="Фамилия" class="simple-field size-1">
+                                <label>Контактный номер телефона <span>*</span></label>
+                                <input type="phone" value="[% user.phone %]" placeholder="+38 XXX XXX-XX-XX " class="simple-field size-1">
+		</div>
+		<div class="col-md-5 information-entry">
+                            <h3 class="cart-column-title">Доставка</h3>
+                                <label>Адрес доставки</label>
+                                <textarea type="text" value="" placeholder="" class="simple-field size-1">[% user.address %]</textarea>
+                                <label>Способ доставки</label>
+								<div class="simple-drop-down simple-field size-1">
+                                   <select>
+                                        <option>Новая почта по Киеву</option>
+                                        <option>Мост экспресс из отделения</option>
+                                        <option>Курьер по Киеву</option>
+                                        <option>Новая почта из отделения</option>
+                                        <option>Укрпочта из отделения</option>
+								   </select>
+								</div>
+		</div>
 	</div>
+	<hr>
+    <div class="row">
+		<div class="col-md-12 information-entry">
+		<div class="button style-10 ">Обновить информацию<input type="submit" value=""></div>
+		</div>
+	</div>
+	</form>
 </div>
 [% PROCESS pages/default/footer.html.tt %]

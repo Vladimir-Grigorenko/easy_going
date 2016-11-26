@@ -39,12 +39,12 @@
 							[% IF item.data.price.percent %]
 							<div class="product-image-label type-1"><span>-[% item.data.price.percent %]%</span></div>
 							[% END %]
-							<div class="bottom-line left-attached">
+							<!--<div class="bottom-line left-attached">
 								<a class="bottom-line-a square"><i class="fa fa-shopping-cart"></i></a>
 								<a class="bottom-line-a square"><i class="fa fa-heart"></i></a>
 								<a class="bottom-line-a square"><i class="fa fa-retweet"></i></a>
 								<a class="bottom-line-a square product-pre"><i class="fa fa-expand"></i></a>
-							</div>
+							</div>-->
 						</div>
 						[% END %]
 						[% IF item.feature.Бренд %]

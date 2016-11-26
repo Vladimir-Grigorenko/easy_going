@@ -360,7 +360,7 @@
 	/*cart popup*/
 	$('.open-cart-popup').on('click', function(e){
     //open oath popup
-    	showPopup($('#popup-box'),'/html/popup/cart.html', function(){
+    	showPopup($('#popup-box'),'/popup/cart.html', function(){
 			initSwiper();
 			initTabs( $('#popup-box') );
 			initNumberPlusMinus();
@@ -490,15 +490,24 @@
     	$(this).addClass('active');
     });
 
-    function initNumberPlusMinus() {
-		$('.number-plus').on('click', function(){
-			var divUpd = $(this).parent().find('.number'), newVal = parseInt(divUpd.text(), 10)+1;
-			divUpd.text(newVal);
+    function initNumberPlusMinus( d, fn ) {
+		var div = d ? d : $('div#site_cart');
+		div.find('.number-plus').on('click', function(){
+			var divUpd = div.find('div.number');
+			var newVal = parseInt(divUpd.text())+1;
+			if(newVal) {
+				divUpd.text(newVal);
+				if( fn ) fn.call( this, newVal);
+			}
 		});
 	
-		$('.number-minus').on('click', function(){
-			var divUpd = $(this).parent().find('.number'), newVal = parseInt(divUpd.text(), 10)-1;
-			if(newVal>=1) divUpd.text(newVal);
+		div.find('.number-minus', div).on('click', function(){
+			var divUpd = div.find('div.number');
+			var newVal = parseInt(divUpd.text())-1;
+			if(newVal>=1){
+				divUpd.text(newVal, divUpd);
+				if( fn ) fn.call( this, newVal);
+			}
 		});
 	}
 	initNumberPlusMinus();
@@ -578,12 +587,13 @@
     	setTimeout(function(){$('.overlay-popup.visible').removeClass('visible');}, 500);
     });
 
-    function showPopup( div, src, f, t ){		
+    function showPopup( div, src, f, t, d ){		
 
 		var me = div ? $(div) : $('div#popup-box');
 		var url = src;
 		var fn = f;
 		var type = t ? t : 'html';
+		var data = d ? d : {};
 				
 		if ( url ) {
 			me.block({
@@ -604,7 +614,8 @@
 			var jqxhr = $.ajax({
 				url: url,
 				type: "GET",
-				dataType: type
+				dataType: type,
+				data: data
 			}).done(function( msg ){
 				if (!msg) {
 					return false;
@@ -615,8 +626,9 @@
 				});
 				
 			}).fail(function(mes) {
-                console.log(mes);
-            }).always(function() {
+                console.log('fail',mes);
+            }).always(function(mes) {
+				console.log( 'always');
 				me.unblock();
             });
 			me.data('jqxhr', jqxhr);
@@ -674,6 +686,86 @@
 
     $('.simple-search-form input').on('blur', function(){
     	$(this).closest('.simple-search-form').removeClass('active');
-    });
+    });		
+	
+	//cart add
+	$('.shopping-cart-add').on('click', function() {
+		var url = "/popup/cart.html";
+		var me = $('div#site_cart');
+		var size = $('div.size-selector', me);
+		var div = $('div.quantity-selector', me);
+		var product_id = parseInt( $('div.product-id', me).text() );
+		var active = '';
+		var sub_val = '';
+		var quantity = 0;
+		
+		if( size.text() ){
+			active = $('div.entry.active', size);
+			if( active.text() ){
+				div.show();
+				sub_val = active.text();
+			}
+			else{
+				alert('Нужно выбрать размер');
+				return false;
+			}
+		}
+		
+		quantity = parseInt( $('div.number', div).text() );
+		
+		showPopup($('#popup-box'), url, function(){
+			initTabs( $('#popup-box') );
+			initSwiper();
+			//initNumberPlusMinus( $('form#user_cart') );
+		}, 'html', { 'cart_add': 1, 'product_id': product_id,  'quantity': quantity, 'sub_value': sub_val } );	
+		
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	function json_data ( me, url, param, fn ){
+		if ( url ) {
+			me.block({
+				message: '<img src="/img/spinner/1.svg"/>',
+				css: { 
+						border: 'none', 
+						backgroundColor: '#000', 
+						'-webkit-border-radius': '10px', 
+						'-moz-border-radius': '10px', 
+						opacity: 0.2, 
+						color: '#fff' 
+					}
+			});
+			
+			if ( me.data('jqxhr') ) {
+				me.data('jqxhr').abort();
+			}
+			
+			var jqxhr = $.getJSON( url, param, function( data ) {
+			  if( fn ) fn.call ( this, data );
+			})
+			.fail(function( data ) {
+				if( fn ) fn.call ( this, { failue:true, errstr: 'Ошибка запроса' } );
+			})
+			.always(function( data ) {
+				me.unblock();
+			});			
+			me.data('jqxhr', jqxhr);
+			
+		}
+		else{
+			if (fn) fn.call();
+			me.addClass('visible active');
+		}
+	}
 	
 //});

@@ -7,15 +7,15 @@
                 <div>
                         [% FOR img IN hilt.admin.product_item.images %]
                         [% item = hilt.get_product_image( hilt.admin.product_item.product_id, img.image_id, 192) %]
-                        [% IF item %]
+                        [% IF item.0 %]
                         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                         <div class="text-center">
-                                    <img class="img-responsive" src="[% item.url_path %]"/>
+                                    <img class="img-responsive" src="[% item.0.url_path %]"/>
                                     <hr>
                                     [% item.w %]  x [% item.h %]
                                     [% medium = hilt.get_product_image( hilt.admin.product_item.product_id, img.image_id, 465) %]
-                                    [% IF medium %]
-                                    <hr><a href="[% medium.url_path %]" target="_blank">[% medium.w %]  x [% medium.h %]</a>
+                                    [% IF medium.0 %]
+                                    <hr><a href="[% medium.0.url_path %]" target="_blank">[% medium.0.w %]  x [% medium.0.h %]</a>
                                     [% END %]
                                     [% origin = hilt.get_origin_image( img.image_id, 'all') %]
                                     [% IF origin %]

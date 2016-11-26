@@ -74,11 +74,7 @@ $(document).ready(function () {
 				url: '/api/user/login.json',
 				type: "POST",
 				dataType: 'json',
-				data: {'mail': mail},
-				beforeSend: function (request)
-				{
-					request.setRequestHeader("X-CSRF-Token", '[% user.csrf %]')
-				}				
+				data: {'mail': mail, csrf:'[% session.csrf %]'}
 			}).done(function( msg ){
 				if (!msg) {
 					$('div.message-text', danger).html( 'Ошибка сервера. Повторите попытку через пару минут.' );

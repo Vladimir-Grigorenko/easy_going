@@ -98,7 +98,11 @@ sub get_all_photo {
 	} );
 	$r->result_class('DBIx::Class::ResultClass::HashRefInflator');  
 	my @res = $r->all();
-	
+	for my $item ( @res ) {
+		$item->{'path'} = "/" . $item->{'w'} . "_" . $item->{'h'} . "/" . $item ->{'path'};
+		$item->{'url_path'} = "/simg" . $item->{'path'};	
+	}
+		
 	return \@res;	
 }
 1;

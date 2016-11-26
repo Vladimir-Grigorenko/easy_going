@@ -1,6 +1,7 @@
 package Control::Model::Product;
 use Mojo::Base 'MojoX::Model';
 use Try::Tiny;
+use List::Util qw(min max);
 use Data::Dumper;
 
 sub get_product2category {
@@ -28,50 +29,53 @@ sub get_product2category {
 	);
 	$rs->result_class('DBIx::Class::ResultClass::HashRefInflator');
 	  	
-	#  Все product_id  из категории - для фиильтов
+	#  Все product_id  из категории - для фильтpов
 	my @all_product_id = ();
+	my @all_price = (); # для фильтра стоимости
 	for my $item ( $rs->all() ){
-		my $data = $model->get_v_product_info({ category_id => $item->{'category_id'}, product_id => $item->{'product_id'} });
-		push @all_product_id, $item->{'product_id'}
-									if $data && ref $data eq "HASH";
+		my $data = $model->get_v_product_info({
+			category_id => $item->{'category_id'},
+			product_id => $item->{'product_id'}
+		});
+		
+		if( $data && ref $data eq "HASH" ){
+			push @all_price, $data->{'price'}->{'current'};
+			push @all_product_id, $item->{'product_id'};
+		}
 	}
 	
 	# Продукты с page и rows
 	my @products = ();
 	for my $item ( @res ){
-		my $data = $model->get_v_product_info({ category_id => $item->{'category_id'}, product_id => $item->{'product_id'} });
+		my $data = $model->get_v_product_info({
+			category_id => $item->{'category_id'},
+			product_id => $item->{'product_id'}
+		});
+		
 		$item->{'data'} = $data
 					if $data && ref $data eq "HASH";
 		
 		push @products, $item->{'product_id'};
 	}
 	
-	$rs = $db->resultset('ProductPrice')->search({
-		'product_id' => { IN => \@all_product_id },
-	},{
-		columns => [
-			{ 'min' => { min => 'me.current'} },
-			{ 'max' => { max => 'me.current'} }
-		]
-	});
 	
 	$rs->result_class('DBIx::Class::ResultClass::HashRefInflator');  
 	my @res2 = $rs->all();
 	
-	{
+	return {
 		success =>\1,
-		count => scalar@all_product_id,
+		count => scalar @all_product_id,
 		page => $attr->{'page'},
 		rows => $attr->{'rows'},
 		data => \@res,
 		all_product_id => \@all_product_id,
 		filter => {
 			price => {
-				min => $res2[0]->{'min'} ? int($res2[0]->{'min'}/100) : 0,
-				max => $res2[0]->{'max'} ? int($res2[0]->{'max'}/100) : 0
+				min => min(@all_price),
+				max => max(@all_price)
 			}
 		}
-	};	
+	}	
 	
 }
 
@@ -141,32 +145,33 @@ sub get_v_product_info {
 	my $h = {};
 	my $res = $db->resultset('VProductInfo')->find( $data );	
 	if( $res ){
+		
 		for my $key ( $res->columns ) {
-			$h->{ $key } = $res->$key if defined $res->$key;
+			$h->{ $key } = $res->$key;
 		}
-		my $price = $model->get_product_price( { product_id => $h->{'product_id'} } );
+		
+		# price
+		my $price = {};
+		if( $h->{'price_sale'} ){
+			$price = {
+				current => sprintf( "%.2f", $h->{'price_sale'}/100 ),
+				prev => sprintf( "%.2f", $h->{'price_current'}/100 ),
+				percent => 100 - int( $h->{'price_sale'} * 100 / $h->{'price_current'})
+			};
+		}
+		else{
+			$price = {
+				current => sprintf( "%.2f", $h->{'price_current'}/100 )
+			};			
+		}
+		$price->{'supplier'} = sprintf( "%.2f", $h->{'price_current'}/100 );
+
 		$h->{'price'} = $price;
 		return $h;
 	}	
 	return undef;	
 }
 
-sub get_product_price {
-	my $model = shift;
-	my $data = shift;
-	my $db = $model->app->db;
-	my $h = {};
-	my $res = $db->resultset('ProductPrice')->find( $data );
-	if( $res ){
-		for my $key ( $res->columns ) {
-			$h->{ $key } = $res->$key if defined $res->$key;
-		}
-		$h->{'current'} = int($h->{'current'}/100) if $h->{'current'};
-		$h->{'prev'} = int($h->{'prev'}/100) if $h->{'prev'};
-		return $h;
-	}
-	return undef;
-}
 
 sub set_product_price {
 	my $model = shift;
