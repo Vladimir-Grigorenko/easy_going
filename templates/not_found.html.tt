@@ -1,0 +1,8 @@
+[% PROCESS pages/default/header.html.tt %]
+<div class="information-blocks">
+	<div class="container-404">
+		<div class="title">404</div>
+		<div class="description">Извините, запрашиваемая вами страница не найдена. <br> Page Not Found</div>
+	</div>
+</div>
+[% PROCESS pages/default/footer.html.tt %]

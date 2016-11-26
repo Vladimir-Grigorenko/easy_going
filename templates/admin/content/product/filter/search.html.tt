@@ -1,0 +1,57 @@
+								<div class="panel panel-default">
+                  <div class="panel-heading">
+                    <div class="panel-title">
+                      Фильтр отбора
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <form class="" role="form">
+											<div class="row">
+
+												<div class="col-sm-3">
+													<div class="form-group form-group-default">
+														<label>Код товара</label>
+														<input type="text" class="form-control" required="">
+													</div>
+												</div>
+												
+												<div class="col-sm-3">
+													<div class="form-group form-group-default">
+														<label>Название</label>
+														<input type="text" class="form-control" required="">
+													</div>
+												</div>
+												
+												<div class="col-sm-3">
+													<div class="form-group form-group-default">
+														<label>Категория </label>
+														<input type="text" class="form-control" required="">
+													</div>													
+												</div>
+
+												<div class="col-sm-3">
+													<div class="form-group form-group-default">
+														<label>Поставщик</label>
+														<input type="text" class="form-control" required="">
+													</div>													
+												</div>
+												
+												<!--
+												<div class="col-sm-4">
+													<div class="form-group form-group-default form-group-default-select2">
+															<label>Статус </label>
+														
+																<select class="full-width" data-init-plugin="select2">
+																		<option value="AK">В наличии</option>
+																		<option value="HI">Нет в наличии</option>
+																</select>
+
+													</div>													
+												</div>-->
+												
+												
+											</div>
+
+                    </form>
+                  </div>
+                </div>

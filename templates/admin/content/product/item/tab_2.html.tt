@@ -1,0 +1,37 @@
+          <div class="row column-seperation">
+            <div class="col-md-4">
+              <button class="btn btn-success btn-cons">Сохранить данные</button>
+            </div>
+          </div>
+          
+          <hr>
+            <div id="product2fearure">
+                          <div class="row column-seperation">
+                            <div class="col-md-12">
+                          
+                              <div class="form-group form-group-default required">
+                                <label>Страна производитель</label>
+                                <input type="text" class="form-control" value="[% hilt.admin.product_item.feature.country %]">
+                              </div>
+                            
+                            </div>
+
+                          </div>          
+                          <div class="row column-seperation">
+                            <div class="col-md-12">
+                          
+                              <div class="form-group form-group-default required">
+                                <label>Бренд</label>
+                                <input type="text" class="form-control" value="[% hilt.admin.product_item.feature.brand %]">
+                              </div>
+                            
+                            </div>
+
+                          </div>
+          </div>                
+                          <hr>
+          <div class="row column-seperation">
+            <div class="col-md-4">
+              <button class="btn btn-success btn-cons">Добавить</button>
+            </div>
+          </div>

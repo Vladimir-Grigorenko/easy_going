@@ -1,0 +1,75 @@
+[2016-05-10 17:32:59,006][INFO ][node                     ] [hilt-1] version[2.3.2], pid[14956], build[b9e4a6a/2016-04-21T16:03:47Z]
+[2016-05-10 17:32:59,009][INFO ][node                     ] [hilt-1] initializing ...
+[2016-05-10 17:33:03,104][INFO ][plugins                  ] [hilt-1] modules [lang-groovy, reindex, lang-expression], plugins [], sites []
+[2016-05-10 17:33:03,318][INFO ][env                      ] [hilt-1] using [1] data paths, mounts [[/ (/dev/dm-1)]], net usable_space [265.6gb], net total_space [289.4gb], spins? [possibly], types [ext4]
+[2016-05-10 17:33:03,321][INFO ][env                      ] [hilt-1] heap size [1007.3mb], compressed ordinary object pointers [true]
+[2016-05-10 17:33:03,325][WARN ][env                      ] [hilt-1] max file descriptors [65535] for elasticsearch process likely too low, consider increasing to at least [65536]
+[2016-05-10 17:33:16,919][INFO ][node                     ] [hilt-1] initialized
+[2016-05-10 17:33:16,927][INFO ][node                     ] [hilt-1] starting ...
+[2016-05-10 17:33:18,040][ERROR][bootstrap                ] [hilt-1] Exception
+BindTransportException[Failed to bind to [9300-9400]]; nested: ChannelException[Failed to bind to: /192.168.0.1:9400]; nested: BindException[Невозможно назначить запрошенный адрес];
+	at org.elasticsearch.transport.netty.NettyTransport.bindToPort(NettyTransport.java:478)
+	at org.elasticsearch.transport.netty.NettyTransport.bindServerBootstrap(NettyTransport.java:440)
+	at org.elasticsearch.transport.netty.NettyTransport.doStart(NettyTransport.java:321)
+	at org.elasticsearch.common.component.AbstractLifecycleComponent.start(AbstractLifecycleComponent.java:68)
+	at org.elasticsearch.transport.TransportService.doStart(TransportService.java:182)
+	at org.elasticsearch.common.component.AbstractLifecycleComponent.start(AbstractLifecycleComponent.java:68)
+	at org.elasticsearch.node.Node.start(Node.java:278)
+	at org.elasticsearch.bootstrap.Bootstrap.start(Bootstrap.java:206)
+	at org.elasticsearch.bootstrap.Bootstrap.init(Bootstrap.java:272)
+	at org.elasticsearch.bootstrap.Elasticsearch.main(Elasticsearch.java:35)
+Caused by: org.jboss.netty.channel.ChannelException: Failed to bind to: /192.168.0.1:9400
+	at org.jboss.netty.bootstrap.ServerBootstrap.bind(ServerBootstrap.java:272)
+	at org.elasticsearch.transport.netty.NettyTransport$1.onPortNumber(NettyTransport.java:460)
+	at org.elasticsearch.common.transport.PortsRange.iterate(PortsRange.java:69)
+	at org.elasticsearch.transport.netty.NettyTransport.bindToPort(NettyTransport.java:456)
+	... 9 more
+Caused by: java.net.BindException: Невозможно назначить запрошенный адрес
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:463)
+	at sun.nio.ch.Net.bind(Net.java:455)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.jboss.netty.channel.socket.nio.NioServerBoss$RegisterTask.run(NioServerBoss.java:193)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.processTaskQueue(AbstractNioSelector.java:391)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:315)
+	at org.jboss.netty.channel.socket.nio.NioServerBoss.run(NioServerBoss.java:42)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2016-05-10 17:33:18,104][INFO ][node                     ] [hilt-1] stopping ...
+[2016-05-10 17:33:18,133][INFO ][node                     ] [hilt-1] stopped
+[2016-05-10 17:33:18,134][INFO ][node                     ] [hilt-1] closing ...
+[2016-05-10 17:33:18,212][INFO ][node                     ] [hilt-1] closed
+[2016-05-10 17:35:22,465][INFO ][node                     ] [hilt-1] version[2.3.2], pid[15120], build[b9e4a6a/2016-04-21T16:03:47Z]
+[2016-05-10 17:35:22,467][INFO ][node                     ] [hilt-1] initializing ...
+[2016-05-10 17:35:25,664][INFO ][plugins                  ] [hilt-1] modules [lang-groovy, reindex, lang-expression], plugins [], sites []
+[2016-05-10 17:35:25,791][INFO ][env                      ] [hilt-1] using [1] data paths, mounts [[/ (/dev/dm-1)]], net usable_space [265.6gb], net total_space [289.4gb], spins? [possibly], types [ext4]
+[2016-05-10 17:35:25,792][INFO ][env                      ] [hilt-1] heap size [1007.3mb], compressed ordinary object pointers [true]
+[2016-05-10 17:35:25,792][WARN ][env                      ] [hilt-1] max file descriptors [65535] for elasticsearch process likely too low, consider increasing to at least [65536]
+[2016-05-10 17:35:38,635][INFO ][node                     ] [hilt-1] initialized
+[2016-05-10 17:35:38,638][INFO ][node                     ] [hilt-1] starting ...
+[2016-05-10 17:35:39,366][INFO ][transport                ] [hilt-1] publish_address {localhost/127.0.0.1:9300}, bound_addresses {127.0.0.1:9300}
+[2016-05-10 17:35:39,391][INFO ][discovery                ] [hilt-1] hilt-cluster-1/JnXYoTyjTHmfWNpha97jGw
+[2016-05-10 17:36:09,408][WARN ][discovery                ] [hilt-1] waited for 30s and no initial state was set by the discovery
+[2016-05-10 17:36:09,436][INFO ][http                     ] [hilt-1] publish_address {localhost/127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}
+[2016-05-10 17:36:09,437][INFO ][node                     ] [hilt-1] started
+[2016-05-10 17:36:14,439][INFO ][node                     ] [hilt-1] stopping ...
+[2016-05-10 17:36:14,626][INFO ][node                     ] [hilt-1] stopped
+[2016-05-10 17:36:14,632][INFO ][node                     ] [hilt-1] closing ...
+[2016-05-10 17:36:14,709][INFO ][node                     ] [hilt-1] closed
+[2016-05-10 17:36:34,328][INFO ][node                     ] [hilt-1] version[2.3.2], pid[15286], build[b9e4a6a/2016-04-21T16:03:47Z]
+[2016-05-10 17:36:34,339][INFO ][node                     ] [hilt-1] initializing ...
+[2016-05-10 17:36:37,853][INFO ][plugins                  ] [hilt-1] modules [lang-groovy, reindex, lang-expression], plugins [], sites []
+[2016-05-10 17:36:38,053][INFO ][env                      ] [hilt-1] using [1] data paths, mounts [[/ (/dev/dm-1)]], net usable_space [265.6gb], net total_space [289.4gb], spins? [possibly], types [ext4]
+[2016-05-10 17:36:38,053][INFO ][env                      ] [hilt-1] heap size [1007.3mb], compressed ordinary object pointers [true]
+[2016-05-10 17:36:38,054][WARN ][env                      ] [hilt-1] max file descriptors [65535] for elasticsearch process likely too low, consider increasing to at least [65536]
+[2016-05-10 17:36:50,300][INFO ][node                     ] [hilt-1] initialized
+[2016-05-10 17:36:50,301][INFO ][node                     ] [hilt-1] starting ...
+[2016-05-10 17:36:50,708][INFO ][transport                ] [hilt-1] publish_address {localhost/127.0.0.1:9300}, bound_addresses {127.0.0.1:9300}
+[2016-05-10 17:36:50,729][INFO ][discovery                ] [hilt-1] hilt-cluster-1/u1Vlmag_TUK1QOF_Ba9xNA
+[2016-05-10 17:37:20,742][WARN ][discovery                ] [hilt-1] waited for 30s and no initial state was set by the discovery
+[2016-05-10 17:37:20,766][INFO ][http                     ] [hilt-1] publish_address {localhost/127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}
+[2016-05-10 17:37:20,767][INFO ][node                     ] [hilt-1] started

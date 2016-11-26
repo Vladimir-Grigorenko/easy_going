@@ -1,0 +1,22 @@
+[% USE Filter.MinifyHTML( comments => 1, html5 => 1 ) %]
+[% FILTER minify_html %]
+	
+[% PROCESS pages/default/header.html.tt %]
+
+<div class="information-blocks">
+	<div class="row">
+		<div class="col-md-9 col-md-push-3 col-sm-8 col-sm-push-4">
+			[% PROCESS pages/default/product_list.html.tt %]
+		</div>
+		<div class="col-md-3 col-md-pull-9 col-sm-4 col-sm-pull-8 blog-sidebar">
+			
+		[% PROCESS pages/catalog/blocks/filters.html.tt %]		
+		
+		</div>
+	</div>
+</div>
+
+
+[% PROCESS pages/default/footer.html.tt %]
+
+[% END %]

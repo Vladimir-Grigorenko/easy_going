@@ -1,0 +1,53 @@
+				<!-- new block-->
+	  <div class="information-blocks" >
+                   
+	<div class="latest-entries-heading">
+		<h3 class="title">Сопутствующие товары</h3>
+	</div>
+
+			<div class="row shop-grid grid-view">
+				[% FOREACH item IN [1,2,3,4] %]
+				<div class="col-md-3 col-sm-4 shop-grid-item">
+					<div class="product-slide-entry shift-image">
+						<div class="product-image">
+							<img src="http://hilt.com.ua/admin/bindata/_0678212_image.tb.jpg" alt="">
+							<img src="http://hilt.com.ua/admin/bindata/_0678212_image.tb.jpg" alt="">
+							<div class="product-image-label type-1"><span>-40%</span></div>
+							<div class="bottom-line left-attached">
+								<a class="bottom-line-a square"><i class="fa fa-shopping-cart"></i></a>
+								<a class="bottom-line-a square"><i class="fa fa-heart"></i></a>
+								<a class="bottom-line-a square"><i class="fa fa-retweet"></i></a>
+								<a class="bottom-line-a square product-pre"><i class="fa fa-expand"></i></a>
+							</div>
+						</div>
+						<a class="tag" href="#">Pauline</a>
+						<a class="title" href="/catalog/clothing-and-shoes/he/jackets-coats/swimsuit-in-ethnic-style.html">Бюстгальтер Римма</a>
+						<div class="rating-box">
+							<div class="star"><i class="fa fa-star"></i></div>
+							<div class="star"><i class="fa fa-star"></i></div>
+							<div class="star"><i class="fa fa-star"></i></div>
+							<div class="star"><i class="fa fa-star"></i></div>
+							<div class="star"><i class="fa fa-star"></i></div>
+						</div>
+						<div class="article-container style-1">
+							<p>Свежесть классического белого воплощена в геометричной сеточке, декорированной тесьмой в цветочном стиле. Мягкая чашка на хлопковой основе, дополненная поддерживающей сеточкой. Горизонтальный шов. Корсетная часть полностью выполнена из микроволокна. Косточки. Кол-во крючков: 2.</p>
+						</div>
+						<div class="price">
+							<div class="prev">1 350.00 грн</div>
+							<div class="current">702.00 грн.</div>
+						</div>
+						<div class="list-buttons">
+							<a class="button style-10">В корзину</a>
+							<a class="button style-11"><i class="fa fa-heart"></i> Сравнение</a>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				[% END %]
+
+	  </div>
+
+	  <div class="clear"></div>
+	</div>
+				<!-- #new block-->
+						

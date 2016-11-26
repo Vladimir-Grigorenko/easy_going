@@ -1,0 +1,10 @@
+<div class="information-blocks">
+	<div class="categories-list">
+		<div class="block-title size-3">Категории</div>
+		<ul>
+			<li><a href="[% system.url_for %]?cat=344">Одежда и обувь<span>(5)</span></a></li>
+			<li><a href="[% system.url_for %]?cat=4456">Товары для дома<span>(2)</span></a></li>
+			<li><a href="[% system.url_for %]?cat=12333">Дача сад огород<span>(0)</span></a></li>
+		</ul>
+	</div>
+</div>

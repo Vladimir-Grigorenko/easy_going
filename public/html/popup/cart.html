@@ -1,0 +1,75 @@
+						<form id="user_cart">
+						<!--item -->
+							<div class="traditional-cart-entry style-1 point">
+								<a class="image" href="#"><img alt="" src="http://hilt.com.ua/admin/bindata/_0659319_image.tb.jpg"></a>
+								<div class="content">
+									<div class="cell-view">
+										<a class="title" href="#">Футболка Nicholas хаки, размер М</a>
+										<div class="price">
+											<div class="prev">250.00 грн.</div>
+											<div class="current">150.00 грн.</div>
+										</div>
+										<div class="quantity-selector detail-info-entry">
+											<div class="detail-info-entry-title">Количество</div>
+											<div class="entry number-minus">&nbsp;</div>
+											<div class="entry number">1</div>
+											<div class="entry number-plus">&nbsp;</div>
+											<a class="button style-3 delete">Удалить</a>
+										</div>					
+									</div>
+								</div>
+							</div>
+							<!--#item -->
+	
+							<!--item -->
+							<div class="traditional-cart-entry style-1 point">
+								<a class="image" href="#"><img alt="" src="http://hilt.com.ua/admin/bindata/_0392289_image.tb.jpg"></a>
+								<div class="content">
+									<div class="cell-view">
+										<a class="title" href="#">Черно-оранжевый Кардиган Fiona, размер 52</a>
+										<div class="price">
+											<div class="prev">250.00 грн.</div>
+											<div class="current">150.00 грн.</div>
+										</div>
+										<div class="quantity-selector detail-info-entry">
+											<div class="detail-info-entry-title">Количество</div>
+											<div class="entry number-minus">&nbsp;</div>
+											<div class="entry number">1</div>
+											<div class="entry number-plus">&nbsp;</div>
+											<a class="button style-3 delete">Удалить</a>
+										</div>					
+									</div>
+								</div>
+							</div>
+							<!--#item -->
+							
+							<div class="cart-entry">
+								<div class="summary">
+									<div class="price">
+										<div class="subtotal prev">Без скидки: 500.00 грн.</div>
+									</div>
+									<div class="grandtotal">Всего к оплате: <span>300.00 грн.</span></div>
+								</div>
+							</div>
+	
+							<div class="cart-buttons" style="margin-top: 1em">
+								<button type="submit" class="button style-4 col-xs-12 col-sm-12 col-md-12">Оформить</button>
+								<div class="clear"></div>
+							</div>
+						</form>
+
+
+<script>
+$( document ).ready(function() {
+	var obj = $('form#user_cart');
+	obj.submit(function( event ) {
+		alert('submit');
+		return false;
+	});
+	
+	$(".delete", obj).on('click', function(){
+		$(this).parents('.point').remove();
+	});
+	
+});
+</script>

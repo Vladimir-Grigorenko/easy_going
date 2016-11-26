@@ -1,0 +1,292 @@
+          <div class="row column-seperation">
+            <div class="col-md-4">
+              <button class="btn btn-success btn-cons">Сохранить данные</button>
+            </div>
+            <div class="col-md-4">
+    <!-- Modal -->
+    <div class="modal fade slide-up disable-scroll" id="modalSlideUp" tabindex="-1" role="dialog" aria-hidden="false" style="max-height: 100%; overflow: auto;">
+      <div class="modal-dialog ">
+        <div class="modal-content-wrapper">
+          <div class="modal-content">
+            <div class="modal-header clearfix text-left">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times-circle-o fs-14"></i>
+              </button>
+              <h5>Категории сайта</span></h5>
+              <p class="p-b-10">Нужно выбрать одну или несколько категорий для продукта</p>
+            </div>
+            <div class="modal-body">
+
+                    <div id="check-tree">
+                    </div>
+                    <hr>
+                  <!--<button class="btn btn-success btn-cons btn-block">Применить</button>-->
+            </div>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+    </div>
+    <!-- /.modal-dialog -->
+
+                        
+              <button class="btn btn-green" id="btnCategory">Выбрать категорию</button>
+            </div>
+            <div class="col-md-4">
+              <input type="checkbox" data-init-plugin="switchery"/> Опубликован
+            </div>            
+          </div>
+          <hr>
+                          <div class="row column-seperation">
+                            <div class="col-md-12">
+                          
+                              <div class="form-group form-group-default">
+                                <label>Название продукта</label>
+                                <input type="text" class="form-control" value="[% hilt.admin.product_item.title %]">
+                              </div>
+                            
+                            </div>
+
+                          </div>
+                          
+                          <div class="row column-seperation">
+                            <div class="col-md-12">
+                          
+                              <div class="form-group form-group-default">
+                                <label>Ссылка</label>
+                                <input type="text" class="form-control" value="[% hilt.admin.product_item.url %]">
+                              </div>
+                            
+                            </div>
+
+                          </div>
+                          
+                          
+                          <div class="row column-seperation">
+                            
+                            
+                            <div class="col-md-12">
+                            <div class="form-group form-group-default">
+                                <label>Описание продукта</label>
+                                <textarea id="wysiwyg5" class="wysiwyg" placeholder="Enter text ..." style="width:100%; height:250px">
+                                [% hilt.admin.product_item.description %]  
+                                </textarea>
+                            </div>
+                            </div>
+                            
+                          </div>                          
+                          <div class="row column-seperation">
+                            <div class="col-md-12">
+                          
+                              <div class="form-group form-group-default">
+                                <label>Meta Tag Title</label>
+                                <input type="text" class="form-control" value="[% hilt.admin.product_item.tag_title %]">
+                              </div>
+                            
+                            </div>
+
+                          </div>
+                          
+                          <div class="row column-seperation">
+                            <div class="col-md-12">
+                          
+                              <div class="form-group form-group-default">
+                                <label>Meta Tag Description</label>
+                                <textarea name="" style="width:100%">
+                                  [% hilt.admin.product_item.tag_description %]
+                                </textarea>
+                              </div>
+                            
+                            </div>
+
+                          </div>
+                          
+                          <div class="row column-seperation">
+                            <div class="col-md-12">
+                          
+                              <div class="form-group form-group-default">
+                                <label>Meta Tag Keywords</label>
+                                <textarea name="" style="width:100%">
+                                  [% hilt.admin.product_item.tag_keywords %]
+                                </textarea>
+                              </div>
+                            
+                            </div>
+
+                          </div>
+
+                          
+                          <div class="row column-seperation">
+                            <div class="col-md-12">
+                          
+                              <div class="form-group form-group-default">
+                                <label>EAN</label>
+                                <input type="text" placeholder="Если есть..." class="form-control" value="[% hilt.admin.product_item.ean %]">
+                              </div>
+                            
+                            </div>
+
+                            <div class="col-md-12">
+                          
+                              <div class="form-group form-group-default">
+                                <label>Артикул</label>
+                                <input type="text" placeholder="Если есть..." class="form-control" value="[% hilt.admin.product_item.vendor %]">
+                              </div>
+                            
+                            </div>
+
+                            <div class="col-md-12">
+                          
+                              <div class="form-group form-group-default">
+                                <label>Поставщик</label>
+                                <input type="text" placeholder="" class="form-control" value="[% hilt.admin.product_item.supplier_name %]">
+                              </div>
+                            
+                            </div>
+
+
+                          </div>
+                          
+                          <div class="row column-seperation">
+                            <div class="col-md-12">
+                          
+                              <div class="form-group form-group-default">
+                                <label>Количество</label>
+                                <input type="text" class="form-control" value="[% hilt.admin.product_item.quantity %]">
+                              </div>
+                            
+                            </div>
+
+                          </div>
+                          
+                          <div class="row column-seperation">
+                            <div class="col-md-12">
+                          
+                              <div class="form-group form-group-default">
+                                <label>Видео YouTube</label>
+                                <input type="text" class="form-control" value="[% hilt.admin.product_item.youtube %]">
+                              </div>
+                            
+                            </div>
+
+                          </div>                          
+
+                       <h5>Габариты и вес</h5>
+                          <hr>
+                          
+                          <div class="row column-seperation">
+                            <div class="col-md-4">
+                          
+                              <div class="form-group form-group-default">
+                                <label>Длина</label>
+                                <input type="text" placeholder="0" class="form-control" value="[% hilt.admin.product_item.width %]">
+                              </div>
+                            
+                            </div>
+                            <div class="col-md-4">
+                          
+                              <div class="form-group form-group-default">
+                                <label>Ширина</label>
+                                <input type="text" placeholder="0" class="form-control" value="[% hilt.admin.product_item.heigth %]">
+                              </div>
+                            
+                            </div>
+                            <div class="col-md-4">
+                          
+                              <div class="form-group form-group-default">
+                                <label>Высота</label>
+                                <input type="text" placeholder="0" class="form-control" value="[% hilt.admin.product_item.depth %]">
+                              </div>
+                            
+                            </div>                            
+
+                          </div>
+                          
+
+                          <div class="row column-seperation">
+                            <div class="col-md-4">
+                          
+                              <div class="form-group form-group-default">
+                                <label>Вес</label>
+                                <input type="text" placeholder="0" class="form-control" value="[% hilt.admin.product_item.weight %]">
+                              </div>
+                            
+                            </div>
+
+
+                          </div>
+                       <h5>Доставка</h5>
+                          <hr>
+                        <div class="row column-seperation">
+                            <div class="col-md-4">
+                          
+                              <div class="form-group form-group-default">
+                                <label>Новая почта</label>
+                                <input type="text" placeholder="0" class="form-control" value="45">
+                              </div>
+                            
+                            </div>
+                            <div class="col-md-4">
+                          
+                              <div class="form-group form-group-default">
+                                <label>Мост - Экспресс</label>
+                                <input type="text" placeholder="0" class="form-control" value="45">
+                              </div>
+                            
+                            </div>
+                            <div class="col-md-4">
+                          
+                              <div class="form-group form-group-default">
+                                <label>Курьер по Киеву</label>
+                                <input type="text" placeholder="0" class="form-control" value="45">
+                              </div>
+                            
+                            </div>                            
+
+                          </div>                        
+
+                        <div class="row column-seperation">
+                            <div class="col-md-4">
+                          
+                              <div class="form-group form-group-default">
+                                <label>Новая почта - Курьер</label>
+                                <input type="text" placeholder="0" class="form-control" value="45">
+                              </div>
+                            
+                            </div>
+
+                          </div>
+                        
+                       <h5>Стоимость</h5>
+                          <hr>
+
+                        <div class="row column-seperation">
+                            <div class="col-md-4">
+                          
+                              <div class="form-group form-group-default">
+                                <label>Закупка</label>
+                                <input type="text" placeholder="0" class="form-control" value="[% hilt.admin.product_item.price.supplier %]">
+                              </div>
+                            
+                            </div>
+                            <div class="col-md-4">
+                          
+                              <div class="form-group form-group-default">
+                                <label>Продажа</label>
+                                <input type="text" placeholder="0" class="form-control" value="[% hilt.admin.product_item.price.current %]">
+                              </div>
+                            
+                            </div>
+                            <div class="col-md-4">
+                          
+                              <div class="form-group form-group-default">
+                                <label>Старая цена</label>
+                                <input type="text" placeholder="0" class="form-control" value="[% hilt.admin.product_item.price.prev %]">
+                              </div>
+                            
+                            </div>
+
+                          </div>                        
+                        
+                        
+                        
+                        

@@ -1,0 +1,12 @@
+[% data = hilt.filter.color %]
+[% IF data %]
+<div class="information-blocks">
+	<div class="block-title size-2">[% data.title %]</div>
+	<div class="[% data.class %]">
+		[% FOREACH item IN data.items %]
+		<div style="background-color: [% item.value %]" class="[% data.item_class %]"></div>
+		[% END %]
+		<div class="spacer"></div>
+	</div>
+</div>
+[% END %]

@@ -1,0 +1,35 @@
+<div class="information-blocks">
+	<div class="mozaic-banners-wrapper type-2">
+		<div class="row">
+			<div class="banner-column col-md-4 col-sm-6">
+				<a class="mozaic-banner-entry type-3" style="background-image: url(/img/mozaic-banner-6.jpg);">
+					<span class="mozaic-banner-content">
+						<span class="subtitle">Категория</span>
+						<span class="title">Игры</span>
+						<span class="description">Описание баннера</span>
+					</span>
+				</a>
+			</div>
+			<div class="banner-column col-md-4 col-sm-6">
+				<a class="mozaic-banner-entry type-3" style="background-image: url(/img/mozaic-banner-7.jpg);">
+					<span class="mozaic-banner-content">
+						<span class="subtitle">Категория</span>
+						<span class="title">Смартфоны</span>
+						<span class="description">Описание баннера</span>
+					</span>
+				</a>
+			</div>
+			<div class="banner-column col-md-4 col-sm-12">
+				<a class="mozaic-banner-entry type-3" style="background-image: url(/img/mozaic-banner-8.jpg);">
+					<span class="mozaic-banner-content">
+						<span class="subtitle">Категория</span>
+						<span class="title">Игровые приставки</span>
+						<span class="description">Описание баннера</span>
+					</span>
+				</a>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>						
+		

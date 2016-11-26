@@ -1,0 +1,189 @@
+[% USE Filter.MinifyHTML( comments => 1, html5 => 1 ) %]
+[% FILTER minify_html %]
+	
+[% PROCESS pages/default/header.html.tt %]
+
+
+<div class="information-blocks">
+                    <div class="table-responsive">
+                        <table class="compare-table">
+                            <tbody><tr>
+                                <td>
+									[% PROCESS pages/category/compare.html.tt  %]	
+								</td>
+                                <td>
+                                    <div class="product-slide-entry shift-image">
+                                        <div class="product-image">
+                                            <img alt="" src="img/product-minimal-1.jpg">
+                                            <img alt="" src="img/product-minimal-11.jpg">
+                                            <div class="bottom-line left-attached">
+                                                <a class="bottom-line-a square"><i class="fa fa-shopping-cart"></i></a>
+                                                <a class="bottom-line-a square"><i class="fa fa-heart"></i></a>
+                                                <a class="bottom-line-a square"><i class="fa fa-retweet"></i></a>
+                                                <a class="bottom-line-a square"><i class="fa fa-expand"></i></a>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="tag">Men clothing</a>
+                                        <a href="#" class="title">Blue Pullover Batwing Sleeve Zigzag</a>
+                                        <div class="rating-box">
+                                            <div class="star"><i class="fa fa-star"></i></div>
+                                            <div class="star"><i class="fa fa-star"></i></div>
+                                            <div class="star"><i class="fa fa-star"></i></div>
+                                            <div class="star"><i class="fa fa-star"></i></div>
+                                            <div class="star"><i class="fa fa-star"></i></div>
+                                        </div>
+                                        <div class="price">
+                                            <div class="prev">$199,99</div>
+                                            <div class="current">$119,99</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="product-slide-entry shift-image">
+                                        <div class="product-image">
+                                            <img alt="" src="img/product-minimal-2.jpg">
+                                            <img alt="" src="img/product-minimal-11.jpg">
+                                            <div class="bottom-line left-attached">
+                                                <a class="bottom-line-a square"><i class="fa fa-shopping-cart"></i></a>
+                                                <a class="bottom-line-a square"><i class="fa fa-heart"></i></a>
+                                                <a class="bottom-line-a square"><i class="fa fa-retweet"></i></a>
+                                                <a class="bottom-line-a square"><i class="fa fa-expand"></i></a>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="tag">Men clothing</a>
+                                        <a href="#" class="title">Blue Pullover Batwing Sleeve Zigzag</a>
+                                        <div class="rating-box">
+                                            <div class="star"><i class="fa fa-star"></i></div>
+                                            <div class="star"><i class="fa fa-star"></i></div>
+                                            <div class="star"><i class="fa fa-star"></i></div>
+                                            <div class="star"><i class="fa fa-star"></i></div>
+                                            <div class="star"><i class="fa fa-star"></i></div>
+                                        </div>
+                                        <div class="price">
+                                            <div class="prev">$199,99</div>
+                                            <div class="current">$119,99</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="product-slide-entry shift-image">
+                                        <div class="product-image">
+                                            <img alt="" src="img/product-minimal-3.jpg">
+                                            <img alt="" src="img/product-minimal-11.jpg">
+                                            <div class="bottom-line left-attached">
+                                                <a class="bottom-line-a square"><i class="fa fa-shopping-cart"></i></a>
+                                                <a class="bottom-line-a square"><i class="fa fa-heart"></i></a>
+                                                <a class="bottom-line-a square"><i class="fa fa-retweet"></i></a>
+                                                <a class="bottom-line-a square"><i class="fa fa-expand"></i></a>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="tag">Men clothing</a>
+                                        <a href="#" class="title">Blue Pullover Batwing Sleeve Zigzag</a>
+                                        <div class="rating-box">
+                                            <div class="star"><i class="fa fa-star"></i></div>
+                                            <div class="star"><i class="fa fa-star"></i></div>
+                                            <div class="star"><i class="fa fa-star"></i></div>
+                                            <div class="star"><i class="fa fa-star"></i></div>
+                                            <div class="star"><i class="fa fa-star"></i></div>
+                                        </div>
+                                        <div class="price">
+                                            <div class="prev">$199,99</div>
+                                            <div class="current">$119,99</div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Description</b></td>
+                                <td>
+                                    <div class="article-container style-1">
+                                        <p>A Configurable product in Magento offers the customers a variety of options, which are selected from drop-down lists. For example, a t-shirt that comes in three colors and three sizes would have two lists of options for Color and Size.</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="article-container style-1">
+                                        <p>A Configurable product in Magento offers the customers a variety of options, which are selected from drop-down lists. For example, a t-shirt that comes in three colors and three sizes would have two lists of options for Color and Size.</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="article-container style-1">
+                                        <p>A Configurable product in Magento offers the customers a variety of options, which are selected from drop-down lists. For example, a t-shirt that comes in three colors and three sizes would have two lists of options for Color and Size.</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>SKU number:</b></td>
+                                <td>NLY26/75CZ</td>
+                                <td>NLY26/75CZ</td>
+                                <td>NLY26/75CZ</td>
+                            </tr>
+                            <tr>
+                                <td><b>Sizes:</b></td>
+                                <td>
+                                    <div class="size-selector detail-info-entry">
+                                        <div class="entry active">xs</div>
+                                        <div class="entry">s</div>
+                                        <div class="entry">m</div>
+                                        <div class="entry">l</div>
+                                        <div class="entry">xl</div>
+                                        <div class="spacer"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="size-selector detail-info-entry">
+                                        <div class="entry active">xs</div>
+                                        <div class="entry">s</div>
+                                        <div class="entry">m</div>
+                                        <div class="entry">l</div>
+                                        <div class="entry">xl</div>
+                                        <div class="spacer"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="size-selector detail-info-entry">
+                                        <div class="entry active">xs</div>
+                                        <div class="entry">s</div>
+                                        <div class="entry">m</div>
+                                        <div class="entry">l</div>
+                                        <div class="entry">xl</div>
+                                        <div class="spacer"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Colors:</b></td>
+                                <td>
+                                    <div class="color-selector detail-info-entry">
+                                        <div style="background-color: #d23118;" class="entry active">&nbsp;</div>
+                                        <div style="background-color: #2a84c9;" class="entry">&nbsp;</div>
+                                        <div style="background-color: #000;" class="entry">&nbsp;</div>
+                                        <div style="background-color: #d1d1d1;" class="entry">&nbsp;</div>
+                                        <div class="spacer"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="color-selector detail-info-entry">
+                                        <div style="background-color: #d23118;" class="entry active">&nbsp;</div>
+                                        <div style="background-color: #2a84c9;" class="entry">&nbsp;</div>
+                                        <div style="background-color: #000;" class="entry">&nbsp;</div>
+                                        <div style="background-color: #d1d1d1;" class="entry">&nbsp;</div>
+                                        <div class="spacer"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="color-selector detail-info-entry">
+                                        <div style="background-color: #d23118;" class="entry active">&nbsp;</div>
+                                        <div style="background-color: #2a84c9;" class="entry">&nbsp;</div>
+                                        <div style="background-color: #000;" class="entry">&nbsp;</div>
+                                        <div style="background-color: #d1d1d1;" class="entry">&nbsp;</div>
+                                        <div class="spacer"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                </div>
+
+[% PROCESS pages/default/footer.html.tt %]
+
+[% END %]

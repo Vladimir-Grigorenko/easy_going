@@ -1,0 +1,31 @@
+<div class="login-box">
+	<div class="article-container style-1">
+		<h3>Регистрация</h3>
+		<p>Вещи, рождённые вдохновением.</p>
+	</div>
+	<form>
+		<label>E-mail</label>
+		<input class="simple-field" type="text" placeholder="Введите Ваш Email" value="">
+		
+		<label class="checkbox-entry">
+			<input type="checkbox" name=""> <span class="check"></span> Я согласен с <a href="/" target="_blank">пользовательким соглашением</a>.
+		</label>
+		<div class="clear"></div>
+		<div class="button style-10 col-md-12">Войти<input type="submit" value=""></div>
+	</form>
+	<div class="socials">
+		<div class="clear"></div>
+		<hr>
+		<h3 class="text-center">Войти через:</h3>
+		<hr>
+		<div class="socials-box text-center">
+			<a href="#"><i class="fa fa-facebook"></i></a>
+			<a href="#"><i class="fa fa-twitter"></i></a>
+			<a href="#"><i class="fa fa-google-plus"></i></a>
+			<a href="#"><i class="fa fa-youtube"></i></a>
+			<a href="#"><i class="fa fa-linkedin"></i></a>
+			<a href="#"><i class="fa fa-instagram"></i></a>
+		</div>
+	</div>	
+</div>
+

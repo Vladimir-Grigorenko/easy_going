@@ -1,0 +1,78 @@
+[% PROCESS admin/header.html.tt
+  breadcrumb = 'Список товаров'
+%]
+
+      
+      
+
+          <!-- START CONTAINER FLUID -->
+          <div class="container-fluid container-fixed-lg">
+            <!-- BEGIN PlACE PAGE CONTENT HERE -->
+            
+            <div class="panel panel-white">
+              <div class="panel-body">
+              <div class="col-md-6">
+                <a class="btn btn-success" id="add_product">Добавить товар</a>
+              </div>
+              </div>
+            </div>
+                        
+            <!-- search -->
+            [% PROCESS admin/content/product/filter/search.html.tt %]
+            <!-- end search -->
+
+      
+
+            <!-- START PANEL -->
+            <div class="panel panel-white">
+              <div class="panel-body">
+                <table class="table table-hover" id="myDataTable">
+                  <thead>
+                    <tr>
+                      <th>Картинка</th>
+                      <th>Название</th>
+                      <th>Бренд</th>
+                      <th>Страна производитель</th>
+                      <th>Количество</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    [% FOR item IN hilt.admin.products.data %]
+                    <tr>
+                      <td class="center">
+                        [% FOR img IN item.images %]
+                          [% IF img.w == 121 %]
+                              <img src="[% img.url_path %]" />
+                              [% LAST %]
+                          [% END %]
+                        [% END %]                        
+                      </td>
+                      <td><a href="/admin/content/product/[% item.data.product_id %].html">[% item.data.title %]</a></td>
+                      <td>[% item %]</td>
+                      <td class="center"> Китай</td>
+                      <td class="center">[% item.data.quantity %]</td>
+                    </tr>
+                    [% END %]
+
+                  </tbody>
+                </table>
+                [% hilt.products_pagination %]
+
+              </div>
+            </div>
+            <!-- END PANEL -->
+            
+            
+
+          <!-- END CONTAINER FLUID -->            
+            
+            <!-- END PLACE PAGE CONTENT HERE -->
+          </div>
+ 
+ 
+
+
+
+
+[% PROCESS admin/footer.html.tt %]

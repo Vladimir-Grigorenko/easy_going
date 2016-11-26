@@ -1,0 +1,97 @@
+[% PROCESS pages/default/header.html.tt %]
+
+<div class="information-blocks">
+	<div class="row">
+		<div class="col-md-9 col-md-push-3 col-sm-8 col-sm-push-4">
+			<div class="row">
+				<div class="type-4 columns-12">
+				<div class="information-blocks">
+                    <div class="article-container style-1">
+						<h1>[% hilt.event_item.title %]</h1>
+						<div>
+							[% hilt.event_item.description %]
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="type-4 columns-12">
+				<div class="information-blocks">
+                    <div class="article-container style-1">
+						<h2>Товары</h2>
+					</div>
+				</div>
+				</div>
+			</div>
+			
+			<!-- sales -->
+			<div class="row">
+				<div class="col-md-12 information-entry">
+					<div class="blog-landing-box type-4 columns-3">
+						
+						[% PROCESS pages/default/product_list.html.tt %]
+
+					</div>
+				</div>
+			</div>
+			
+			<!-- #sales -->
+			<div class="clear"></div>
+		
+		</div>
+
+		<div class="col-md-3 col-md-pull-9 col-sm-4 col-sm-pull-8 blog-sidebar">
+
+			[% IF hilt.event_filter.type.size %]
+			<div class="information-blocks">
+				<div class="block-title size-2">Тип акции</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<label class="checkbox-entry">
+							<input type="checkbox"> <span class="check"></span> Скидка
+						</label>
+						<label class="checkbox-entry">
+							<input type="checkbox"> <span class="check"></span> Подарок
+						</label>
+						<label class="checkbox-entry">
+							<input type="checkbox"> <span class="check"></span> Розыгрыш
+						</label>
+					</div>
+				</div>
+			</div>
+			[% END %]
+
+			<div class="information-blocks">
+				<div class="block-title size-2">По категориям</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<label class="checkbox-entry">
+							<input type="checkbox"> <span class="check"></span>  Одежда и обувь
+						</label>
+						<label class="checkbox-entry">
+							<input type="checkbox"> <span class="check"></span> Товары для дома
+						</label>
+						<label class="checkbox-entry">
+							<input type="checkbox"> <span class="check"></span> Дача, сад, огород
+						</label>
+						<label class="checkbox-entry">
+							<input type="checkbox"> <span class="check"></span> Ювелирные украшения
+						</label>  
+						<label class="checkbox-entry">
+							<input type="checkbox"> <span class="check"></span> Красота и здоровье
+						</label>
+					</div>
+				</div>
+			</div>
+
+			 
+		</div>
+	 <div class="clear"></div>		
+	</div>
+</div>
+
+
+[% PROCESS pages/default/blocks/last_news_col4.html.tt %]
+[% PROCESS pages/default/footer.html.tt %]

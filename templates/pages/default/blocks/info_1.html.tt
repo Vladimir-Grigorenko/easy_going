@@ -1,0 +1,30 @@
+<div class="information-blocks" >
+<div class="column-article-wrapper">
+	<div class="row nopadding">
+		<div class="col-sm-4 information-entry-xs left-border nopadding">
+			<div class="column-article-entry">
+				<a href="#" class="title">Система лояльности</a>
+				<div class="description" style="font-size: 2em"><i class="fa fa-line-chart"></i></div>
+				<div class="description">Накопительная система баллов</div>
+				<a class="read-more">Детальная информация <i class="fa fa-angle-right"></i></a> 
+			</div>
+		</div>
+		<div class="col-sm-4 information-entry-xs left-border nopadding">
+			<div class="column-article-entry">
+				<a href="#" class="title">Доставка FREE</a>
+				<div class="description" style="font-size: 2em"><i class="fa fa-truck"></i></div>
+				<div class="description">При покупке товаров от 300 грн.</div>
+				<a class="read-more">Детальная информация <i class="fa fa-angle-right"></i></a> 
+			</div>
+		</div>
+		<div class="col-sm-4 information-entry-xs left-border nopadding">
+			<div class="column-article-entry">
+				<a href="#" class="title">Гарантия качества</a>
+				<div class="description" style="font-size: 2em"><i class="fa fa-thumbs-up"></i></div>
+				<div class="description">Мы гарантируем качество наших товаров.</div>							
+				<a class="read-more">Детальная информация <i class="fa fa-angle-right"></i></a> 
+			</div>
+		</div>
+	</div>
+</div>
+</div>

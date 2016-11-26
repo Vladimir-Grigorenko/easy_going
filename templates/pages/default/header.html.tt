@@ -1,0 +1,216 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="/css/idangerous.swiper.css" rel="stylesheet" type="text/css" />
+<link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+
+<!--[if IE 9]>
+<link href="/css/ie9.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<link rel="shortcut icon" href="/img/favicon-6.ico" />
+
+<link rel="canonical" href="[% url.base %][% url.path %]" />
+
+<title>[% site.title %]</title>
+
+</head>
+<body class="style-10">
+	
+<!-- LOADER -->
+<div id="loader-wrapper">
+	<div class="bubbles">
+		<div class="title">Загрузка</div>
+		<span></span>
+		<span id="bubble2"></span>
+		<span id="bubble3"></span>
+	</div>
+</div>	
+<!-- #LOADER -->
+
+<!-- content-block -->
+<div id="content-block">
+	<div class="content-center fixed-header-margin">
+		
+		<!-- HEADER -->
+		<div class="header-wrapper style-0">
+			<!-- MENU -->
+				<header class="type-1">
+						<div class="header-top ">
+							<div class="header-top-entry hidden-xs">
+								<div class="title"><a href="/about.html">О нас</a></div>
+							</div>
+							<div class="header-top-entry hidden-xs">
+								<div class="title">Доставка и оплата</div>
+							</div>
+							<div class="header-top-entry hidden-xs">
+								<div class="title">Возвраты</div>
+							</div>
+							<div class="header-top-entry hidden-xs">
+								<div class="title">Для связи</div>
+							</div>
+							<div class="header-top-entry hidden-xs">
+								<div class="title">Партнерам</div>
+							</div>
+							<div class="header-top-entry hidden-xs">
+                                <div class="title">еще ... <i class="fa fa-caret-down"></i></div>
+								<div class="list">
+									<a class="list-entry" href="#">Таблица размеров</a>
+								</div>
+
+							</div>
+
+							<div class="right-entries pull-right hidden-xs">
+								<div class="header-top-entry">
+                                    <div class="title"><i class="fa fa-user"></i> Пользователю<i class="fa fa-caret-down"></i></div>
+                                    <div class="list" id="user_menu">
+										[% UNLESS user.user_id %]
+                                        <a class="list-entry" href="javascript:void(0);" onclick="showPopup('div#popup-box','/popup/register.html')">Регистрация</a>
+                                        <a class="list-entry" href="javascript:void(0);" onclick="showPopup('div#popup-box','/popup/login.html')">Авторизация</a>
+										[% END %]
+										[% IF user.user_id %]
+											[% IF user.user_admin_group_id %]
+												<a class="list-entry" href="/admin">Администрирование</a>
+											[% END %]
+										<a class="list-entry" href="/profile">Данные</a>
+										<a class="list-entry" href="/profile/orders">Заказы</a>
+										<a class="list-entry" href="/profile/purse">Кошелек</a>
+										<a class="list-entry" href="/logout">Выйти</a>
+										[% END %]
+										
+                                    </div>
+                                </div>								
+								<div class="header-top-entry hidden-xs">
+									<div class="title"> <a class="" href="/compare"><i class="fa fa-copy"></i><span>10</span></a> </div>
+								</div>
+								[% IF user.user_id %]
+								<div class="header-top-entry hidden-xs">
+									<div class="title">										
+										<a href="#">
+											<i class="fa fa-heart-o"></i><span>12</span>
+										</a>										
+									</div>
+								</div>
+								[% END %]
+								<div class="header-top-entry hidden-xs">
+									<div class="title">
+										<a href="#" class="open-cart-popup"><i class="fa fa-shopping-cart"></i><span>Корзина:</span> <b>Пустая</b></a>
+									</div>
+								</div>							
+							</div>
+							
+							<div class="menu-button responsive-menu-toggle-class"><i class="fa fa-reorder"></i></div>
+							<div class="clear"></div>
+						</div>
+
+						<div class="header-middle">
+							<div class="logo-wrapper">
+								<a id="logo" href="/"><img src="/img/logo_h_2.png" alt=""></a>
+							</div>
+
+							<div class="middle-entry">
+								<div class="line-entry text-center" style="margin-bottom: 20px;">
+									<font style="font-size:1.7em; font-weight: 500;"><i class="fa fa-phone"></i> +38(044) 500-16-57</font>
+								</div>
+								<div class="clear"></div>
+								<div class="row">
+									<div class="col-md-6">
+										<a href="#" class="button style-11 btn-block" style="padding: 5px;"><i class="fa fa-phone"></i> Перезвоните мне</a></div>
+									<div class="col-md-6">
+										<a href="#" class="button style-16 btn-block" style="padding: 5px;"><i class="fa fa-phone"></i> Через сайт</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="middle-entry text-center">
+								<div style="padding:.5em 0">
+									<img src="/img/mob_icon/kyiv_16_16.png" alt="Київстар" title="Київстар"> <a href="tel:+380677360300"><b>+38(067) 736-03-00</b></a> <br>
+									<img src="/img/mob_icon/life_16_16.png" alt="lifecell" title="lifecell"> <a href="tel:+380637570573"><b>+38(063) 757-05-73</b></a> <br>
+									<img src="/img/mob_icon/vod_16_16.png" alt="Vodafone" title="Vodafone"> <a href="tel:+380953487753"><b>+38(095) 348-77-53</b></a>
+								</div>
+							</div>
+
+							<div class="middle-entry">
+								<div class="styled-form">
+									<form>
+										<div class="submit-wrapper">Найти<input type="submit" value=""></div>
+										<div class="field-wrapper">
+											<input type="text" placeholder="Что-то ищем?" value="">
+										</div>
+									</form>
+								</div>
+							</div>
+
+						</div>
+						
+						<div class="navigation visible-xs">
+                            <div class="navigation-header responsive-menu-toggle-class">
+                                <div class="title">Navigation</div>
+                                <div class="close-menu"></div>
+                            </div>
+                            <div class="nav-overflow">
+                                <nav class="disable-animation">
+                                    <ul>
+                                        <li class="full-width">
+                                            <a href="#" class="active">Home</a><i class="fa fa-chevron-down"></i>
+                                        </li>
+                                        <li class="full-width-columns">
+                                            <a href="#">Clothing</a><i class="fa fa-chevron-down"></i>
+                                        </li>
+                                        <li class="column-2">
+                                            <a href="#">Electronics<span class="menu-label blue">new</span></a><i class="fa fa-chevron-down"></i>
+                                        </li>
+                                        <li class="column-1">
+                                            <a href="#">Accessories</a><i class="fa fa-chevron-down"></i>
+                                        </li>
+                                        <li class="column-1">
+                                            <a href="#">Blog</a><i class="fa fa-chevron-down"></i>
+                                        </li>
+                                    </ul>
+
+                                    <ul>
+                                        <li class="simple-list">
+                                            <a href="#">Custom Tab</a><i class="fa fa-chevron-down"></i>
+                                        </li>
+                                        <li><a href="#">About Us</a></li>
+                                        <li class="fixed-header-visible">
+                                            <a class="fixed-header-square-button open-cart-popup"><i class="fa fa-shopping-cart"></i></a>
+                                            <a class="fixed-header-square-button open-search-popup"><i class="fa fa-search"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clear"></div>
+									
+                                </nav>
+                                <div class="navigation-footer responsive-menu-toggle-class">
+                                    <div class="socials-box">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                                        <a href="#"><i class="fa fa-youtube"></i></a>
+                                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                                        <a href="#"><i class="fa fa-instagram"></i></a>
+                                        <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>						
+
+						
+													
+				</header>			
+			<!--#MENU -->
+			<!-- <div class="close-header-layer"></div> -->
+
+			<div class="clear"></div>
+		</div>
+		<!-- #HEADER -->
+		
+		<div class="content-push">
+			
+			
+		[% PROCESS pages/default/breadcrumb.html.tt %]	

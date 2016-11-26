@@ -1,0 +1,99 @@
+[% PROCESS pages/default/header.html.tt %]
+
+<div class="information-blocks">
+	<div class="row">
+		<div class="col-md-9 col-md-push-3 col-sm-8 col-sm-push-4">
+
+			<!-- sales -->
+			<div class="row">
+				<div class="col-md-12 information-entry">
+					<div class="blog-landing-box type-4 columns-3">
+						
+						[% FOR item IN hilt.event.data %]
+						<!-- item -->
+						<div class="blog-entry">
+							<div class="timer2" style=" position: absolute; z-index:1; margin-top: 10px;">
+								<div class="days-wrapper">
+									<i class="fa fa-clock-o"></i> <span class="days">[% item.day %]</span> дн. <span class="hours">[% item.time %]</span> 
+								</div>
+							</div>
+							<a class="image hover-class-1" href="#"><img src="http://hilt.com.ua/admin/bindata/_0667525_image.jpg" alt="" /><span class="hover-label">Детали акции ...</span></a>
+							<div class="content" style="margin-left:10px">
+								<a class="title" href="/events/[% hilt.translit(item.title) %].html">[% item.title %]</a>
+								<!--<div class="subtitle"><a href="#"><b>Красота и здоровье</b></a> / <a href="#">Косметика по уходу</a></div>-->
+								<!-- <div class="description">[% item.description %]</div> -->
+								<!-- <a class="readmore" href="#">read more</a>-->
+							</div>
+						</div>
+						<!-- #item -->
+						[% END %]
+
+
+					</div>
+				</div>
+			</div>
+			
+			<!-- #sales -->
+			<div class="clear"></div>
+
+			<div class="page-selector">
+				<div class="description">[% hilt.event.page %]-[% hilt.event.rows %] из [% hilt.event.count %]</div>
+				[% hilt.event_pagination %]
+				<div class="clear"></div>
+			</div>
+		
+		</div>
+
+		<div class="col-md-3 col-md-pull-9 col-sm-4 col-sm-pull-8 blog-sidebar">
+
+			[% IF hilt.event_filter.type.size %]
+			<div class="information-blocks">
+				<div class="block-title size-2">Тип акции</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<label class="checkbox-entry">
+							<input type="checkbox"> <span class="check"></span> Скидка
+						</label>
+						<label class="checkbox-entry">
+							<input type="checkbox"> <span class="check"></span> Подарок
+						</label>
+						<label class="checkbox-entry">
+							<input type="checkbox"> <span class="check"></span> Розыгрыш
+						</label>
+					</div>
+				</div>
+			</div>
+			[% END %]
+
+			<div class="information-blocks">
+				<div class="block-title size-2">По категориям</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<label class="checkbox-entry">
+							<input type="checkbox"> <span class="check"></span>  Одежда и обувь
+						</label>
+						<label class="checkbox-entry">
+							<input type="checkbox"> <span class="check"></span> Товары для дома
+						</label>
+						<label class="checkbox-entry">
+							<input type="checkbox"> <span class="check"></span> Дача, сад, огород
+						</label>
+						<label class="checkbox-entry">
+							<input type="checkbox"> <span class="check"></span> Ювелирные украшения
+						</label>  
+						<label class="checkbox-entry">
+							<input type="checkbox"> <span class="check"></span> Красота и здоровье
+						</label>
+					</div>
+				</div>
+			</div>
+
+			 
+		</div>
+	 <div class="clear"></div>		
+	</div>
+</div>
+
+
+[% PROCESS pages/default/blocks/last_news_col4.html.tt %]
+[% PROCESS pages/default/footer.html.tt %]

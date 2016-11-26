@@ -1,0 +1,54 @@
+[% USE Filter.MinifyHTML( comments => 1, html5 => 1 ) %]
+[% FILTER minify_html %]
+	
+[% PROCESS pages/default/header.html.tt %]
+
+<div class="information-blocks">
+
+                    <div class="article-container style-1">
+                        <h1>Heading h1</h1>
+                        <h2>Heading h2</h2>
+                        <h3>Heading h3</h3>
+                        <h4>Heading h4</h4>
+                        <h5>Heading h5</h5>
+                        <h6>Heading h6</h6>
+                        <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium. But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences</p>
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet, consectetur</li>
+                            <li>adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+                            <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in</li>
+                            <li>reprehenderit in voluptate velit.</li>
+                        </ul>
+                        <p><b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolor magna aliqua.</b> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut <a href="#">aliquip ex ea commodo</a> consequat. Duis aute irure dolor in reprehenderit in voluptate velit.</p>
+                        <ol>
+                            <li>Lorem ipsum dolor sit amet, consectetur</li>
+                            <li>adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+                            <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in</li>
+                            <li>reprehenderit in voluptate velit.</li>
+                        </ol>
+                        <a href="#" class="continue-link">Continue reading <i class="fa fa-long-arrow-right"></i></a>
+                    </div>
+
+                    <div style="height: 40px;"></div>
+
+                    <div class="article-container">
+                        <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium. But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences</p>
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet, consectetur</li>
+                            <li>adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+                            <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in</li>
+                            <li>reprehenderit in voluptate velit.</li>
+                        </ul>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.</p>
+                        <ol>
+                            <li>Lorem ipsum dolor sit amet, consectetur</li>
+                            <li>adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+                            <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in</li>
+                            <li>reprehenderit in voluptate velit.</li>
+                        </ol>
+                    </div>
+                </div>
+
+[% PROCESS pages/default/footer.html.tt %]
+
+[% END %]

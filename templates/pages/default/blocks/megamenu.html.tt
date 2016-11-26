@@ -1,0 +1,182 @@
+<div id="megamenu" class="information-blocks categories-border-wrapper">
+	<div class="block-title size-3">Каталог товаров</div>
+	<div class="accordeon">
+		<div class="accordeon-title">Одежда и обувь <span class="inline-label green">New</span> </div>
+		<div class="accordeon-entry">
+			<div class="article-container style-1">
+				<ul>
+					<li class="child">
+						<div class="accordeon">
+							<div class="accordeon-title child">Он</div>
+							<div class="accordeon-entry">
+								<div class="article-container style-1">
+									<ul>
+											<li class="child">
+												<div class="accordeon">
+													<div class="accordeon-title child">Одежда</div>
+													<div class="accordeon-entry">
+														<div class="article-container style-1">
+															<ul>
+																<li>
+																	<a href="/catalog/clothing-and-shoes/he/jackets-coats">Куртки, плащи</a>
+																</li>
+															</ul>
+														</div>
+													</div>
+												</div>			
+											</li>
+											<li class="child">
+												<div class="accordeon">
+													<div class="accordeon-title child">Обувь</div>
+													<div class="accordeon-entry">
+														<div class="article-container style-1">
+															<ul>
+																<li>
+																	<a href="#">Ботинки</a>
+																</li>
+															</ul>
+														</div>
+													</div>
+												</div>			
+											</li>																		
+									</ul>
+								</div>
+							</div>
+						</div>			
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="accordeon-title">Товары для дома</div>
+		<div class="accordeon-entry">
+			<div class="article-container style-1">
+				<ul>
+					<li><a href="#">Bags &amp; Accessories</a></li>
+					<li><a href="#">Man's Products</a></li>
+					<li><a href="#">Woman's Products</a></li>
+					<li><a href="#">Top Brands</a></li>
+					<li><a href="#">Special Offer</a></li>
+					<li><a href="#">Leather's Products</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="accordeon-title">Дача, сад, огород</div>
+		<div class="accordeon-entry" style="display: none;">
+			<div class="article-container style-1">
+				<ul>
+					<li><a href="#">Bags &amp; Accessories</a></li>
+					<li><a href="#">Man's Products</a></li>
+					<li><a href="#">Woman's Products</a></li>
+					<li><a href="#">Top Brands</a></li>
+					<li><a href="#">Special Offer</a></li>
+					<li><a href="#">Leather's Products</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="accordeon-title">Ювелирные украшения</div>
+		<div class="accordeon-entry">
+			<div class="article-container style-1">
+				<ul>
+					<li><a href="#">Bags &amp; Accessories</a></li>
+					<li><a href="#">Man's Products</a></li>
+					<li><a href="#">Woman's Products</a></li>
+					<li><a href="#">Top Brands</a></li>
+					<li><a href="#">Special Offer</a></li>
+					<li><a href="#">Leather's Products</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="accordeon-title">Красота и здоровье</div>
+		<div class="accordeon-entry">
+			<div class="article-container style-1">
+				<ul>
+					<li><a href="#">Bags &amp; Accessories</a></li>
+					<li><a href="#">Man's Products</a></li>
+					<li><a href="#">Woman's Products</a></li>
+					<li><a href="#">Top Brands</a></li>
+					<li><a href="#">Special Offer</a></li>
+					<li><a href="#">Leather's Products</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="accordeon-title">Техника</div>
+		<div class="accordeon-entry" style="display: none;">
+			<div class="article-container style-1">
+				<ul>
+					<li><a href="#">Bags &amp; Accessories</a></li>
+					<li><a href="#">Man's Products</a></li>
+					<li><a href="#">Woman's Products</a></li>
+					<li><a href="#">Top Brands</a></li>
+					<li><a href="#">Special Offer</a></li>
+					<li><a href="#">Leather's Products</a></li>
+				</ul>
+			</div>
+		</div>   
+		<div class="accordeon-title">Товары для детей</div>
+		<div class="accordeon-entry" style="display: none;">
+			<div class="article-container style-1">
+				<ul>
+					<li><a href="#">Bags &amp; Accessories</a></li>
+					<li><a href="#">Man's Products</a></li>
+					<li><a href="#">Woman's Products</a></li>
+					<li><a href="#">Top Brands</a></li>
+					<li><a href="#">Special Offer</a></li>
+					<li><a href="#">Leather's Products</a></li>
+				</ul>
+			</div>
+		</div>   
+		<div class="accordeon-title">Развитие и обучение</div>
+		<div class="accordeon-entry" style="display: none;">
+			<div class="article-container style-1">
+				<ul>
+					<li><a href="#">Bags &amp; Accessories</a></li>
+					<li><a href="#">Man's Products</a></li>
+					<li><a href="#">Woman's Products</a></li>
+					<li><a href="#">Top Brands</a></li>
+					<li><a href="#">Special Offer</a></li>
+					<li><a href="#">Leather's Products</a></li>
+				</ul>
+			</div>
+		</div>   
+		<div class="accordeon-title">Хобби и Творчество</div>
+		<div class="accordeon-entry" style="display: none;">
+			<div class="article-container style-1">
+				<ul>
+					<li><a href="#">Bags &amp; Accessories</a></li>
+					<li><a href="#">Man's Products</a></li>
+					<li><a href="#">Woman's Products</a></li>
+					<li><a href="#">Top Brands</a></li>
+					<li><a href="#">Special Offer</a></li>
+					<li><a href="#">Leather's Products</a></li>
+				</ul>
+			</div>
+		</div>   
+		<div class="accordeon-title">Зоотовары</div>
+		<div class="accordeon-entry" style="display: none;">
+			<div class="article-container style-1">
+				<ul>
+					<li><a href="#">Bags &amp; Accessories</a></li>
+					<li><a href="#">Man's Products</a></li>
+					<li><a href="#">Woman's Products</a></li>
+					<li><a href="#">Top Brands</a></li>
+					<li><a href="#">Special Offer</a></li>
+					<li><a href="#">Leather's Products</a></li>
+				</ul>
+			</div>
+		</div>   
+		<div class="accordeon-title">Спортивные товары</div>
+		<div class="accordeon-entry" style="display: none;">
+			<div class="article-container style-1">
+				<ul>
+					<li><a href="#">Bags &amp; Accessories</a></li>
+					<li><a href="#">Man's Products</a></li>
+					<li><a href="#">Woman's Products</a></li>
+					<li><a href="#">Top Brands</a></li>
+					<li><a href="#">Special Offer</a></li>
+					<li><a href="#">Leather's Products</a></li>
+				</ul>
+			</div>
+		</div>   
+	</div>
+</div>
+

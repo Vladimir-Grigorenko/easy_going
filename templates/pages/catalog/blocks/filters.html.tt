@@ -1,0 +1,67 @@
+			<div class="information-blocks">
+				<div class="block-title size-2">Цена</div>
+				<div class="range-wrapper">
+					<div id="prices-range" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+						<div class="ui-slider-range ui-widget-header ui-corner-all" ></div>
+						<span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" ></span>
+						<span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" ></span>
+					</div>
+					<div class="range-price">
+						<div class="min-price"><b>от <span>[% hilt.price.min %]</span></b></div>
+						<b> - </b>
+						<div class="max-price"><b>до <span>[% hilt.price.max %]</span></b></div>
+					</div>
+					<a class="button style-14">ОК</a>
+				</div>
+			</div>
+
+			[% PROCESS tmpl/feature/filter.html.tt %]
+			
+			<!--<div class="information-blocks">
+				<div class="block-title size-2">Размер</div>
+				<div class="size-selector">
+					<div class="entry active">xs</div>
+					<div class="entry">s</div>
+					<div class="entry">m</div>
+					<div class="entry">l</div>
+					<div class="entry">xl</div>
+					<div class="spacer"></div>
+				</div>
+			</div>-->
+			
+			[% FOR item IN hilt.filter.pairs %]
+			<div class="information-blocks">
+				<div class="block-title size-2">[% item.key %]</div>
+				<div class="row">
+					[% FOR arr IN item.value %]
+					<div class="col-xs-6">
+						[% FOR hash IN arr %]
+							[% IF hash.value %]
+							<label class="checkbox-entry">
+								<input type="checkbox"> <span class="check"></span> [% hash.value %]
+							</label>
+							[% END %]
+						[% END %]
+					</div>
+					[% END %]
+				</div>
+			</div>
+			[% END %]
+
+
+			<!--<div class="information-blocks">
+				<div class="block-title size-2">Цвет</div>
+				<div class="color-selector detail-info-entry">
+					<div style="background-color: #cf5d5d;" class="entry active"></div>
+					<div style="background-color: #c9459f;" class="entry"></div>
+					<div style="background-color: #689dd4;" class="entry"></div>
+					<div style="background-color: #68d4aa;" class="entry"></div>
+					<div style="background-color: #a8d468;" class="entry"></div>
+					<div style="background-color: #d4c368;" class="entry"></div>
+					<div style="background-color: #c2c2c2;" class="entry"></div>
+					<div style="background-color: #000000;" class="entry"></div>
+					<div style="background-color: #f0f0f0;" class="entry"></div>
+					<div class="spacer"></div>
+				</div>
+			</div>-->
+			 

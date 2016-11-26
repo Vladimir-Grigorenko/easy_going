@@ -1,0 +1,139 @@
+			<div class="page-selector">
+				<div class="hidden-xs">
+					[% hilt.products_pagination %]
+				</div>
+				<div class="shop-grid-controls">
+					<!--
+					<div class="entry">
+						<div class="inline-text">Сортировать по:</div>
+						<div class="simple-drop-down">
+							<select>
+								<option>По рейтингу</option>
+								<option>По популярности</option>
+								<option>По цене</option>
+							</select>
+						</div>
+						<div class="sort-button"></div>
+					</div> -->
+					<div class="entry">
+						<div class="view-button active grid"><i class="fa fa-th"></i></div>
+						<div class="view-button list"><i class="fa fa-list"></i></div>
+					</div>
+
+				</div>
+				<div class="clear"></div>
+			</div>
+				
+			<div class="row shop-grid grid-view">
+				[% FOREACH item IN hilt.products.data %]
+				<div class="col-md-3 col-sm-4 shop-grid-item">
+					<div class="product-slide-entry shift-image1">
+						[% IF item.images %]
+						<div class="product-image">
+							[% FOREACH i IN item.images %]
+								[% IF i.w == 465 %]
+								<img src="[% i.url_path %]" alt="[% item.title %]">
+								[% LAST %]
+								[% END %]
+							[% END %]
+							[% IF item.data.price.percent %]
+							<div class="product-image-label type-1"><span>-[% item.data.price.percent %]%</span></div>
+							[% END %]
+							<div class="bottom-line left-attached">
+								<a class="bottom-line-a square"><i class="fa fa-shopping-cart"></i></a>
+								<a class="bottom-line-a square"><i class="fa fa-heart"></i></a>
+								<a class="bottom-line-a square"><i class="fa fa-retweet"></i></a>
+								<a class="bottom-line-a square product-pre"><i class="fa fa-expand"></i></a>
+							</div>
+						</div>
+						[% END %]
+						[% IF item.feature.Бренд %]
+						<div class="tag" href="#">[% item.feature.Бренд.0.value %]</div>
+						[% END %]
+						<a class="title" href="/product/p[% item.data.product_id %]-[% item.data.url %].html">[% item.data.title %]</a>
+						<div class="rating-box">
+							[% FOR r IN [1..5] %]
+								[% IF r <= item.data.rating %]
+								<div class="star"><i class="fa fa-star"></i></div>
+								[% ELSE %]
+								<div class="star"><i class="fa fa-star-o"></i></div>
+								[% END %]
+							[% END %]
+						</div>						
+						[% IF  item.data.description  %]
+						<div class="article-container style-1">
+							<p>[% item.data.description %]</p>
+						</div>
+						[% END %]
+						[% IF item.data.quantity %]
+							[% IF item.data.price %]
+							<div class="price" style="padding-bottom:0">
+								[% IF item.data.price.prev %]
+								<div class="prev">[% item.data.price.prev %]</div>
+								[% END %]
+								[% IF item.data.price.current %]
+								<div class="current">[% item.data.price.current %] грн.</div>
+								[% END %]
+							</div>
+							[% END %]
+							[% IF item.feature.Размер %]
+								<style>
+									.size-selector .entry2 {
+										display: inline-block;
+										width: 20px;
+										/* height: 20px; */
+										/* line-height: 37px; */
+										/* border: 1px #d9d9d9 solid; */
+										text-align: center;
+										font-size: 12px;
+										color: #4c4c4c;
+										/* font-weight: 500; */
+										/* margin-right: 12px; */
+										position: relative;
+										text-transform: uppercase;
+										/* cursor: pointer; */
+										/* margin-bottom: 12px; */
+									}									
+								</style>
+								<div class="size-selector">
+								[% FOR item IN item.feature.Размер %]
+									[% FOR size IN item.value %]
+										<div class="entry2" style="">[% size %]</div>
+									[% END %]
+								[% END %]
+								</div>
+							[% END %]
+						
+						[% END %]
+						[% IF item.data.quantity %]
+						<div class="list-buttons">
+							<a class="button style-10">В корзину</a>
+							<a class="button style-11"><i class="fa fa-heart"></i> В закладки</a>
+						</div>
+						[% END %]
+					</div>
+					<div class="clear"></div>
+				</div>
+				[% END %]
+
+						
+			</div>
+			
+
+			<div class="page-selector">
+				[% IF hilt.products.page > 1 %]
+					[% from = hilt.products.page - 1 %]
+					[% from = from * hilt.products.rows %]
+					[% to = from + hilt.products.rows %]
+				[% ELSE %]
+					[% from = hilt.products.page %]
+					[% IF hilt.products.count <= hilt.products.rows %]
+						[% to = hilt.products.count %]
+					[% ELSE %]
+						[% to = hilt.products.rows %]
+					[% END %]
+				[% END %]
+				<div class="description">[% from %]-[% to %] из [% hilt.products.count %]</div>
+				[% hilt.products_pagination %]
+				<div class="clear"></div>
+			</div>

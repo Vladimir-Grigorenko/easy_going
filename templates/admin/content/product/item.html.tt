@@ -1,0 +1,71 @@
+[% PROCESS admin/header.html.tt
+  breadcrumb = hilt.admin.product_item.title 
+%]
+
+      
+      
+
+          <!-- START CONTAINER FLUID -->
+          <div class="container-fluid container-fixed-lg">
+            <!-- BEGIN PlACE PAGE CONTENT HERE -->
+            
+            
+
+            <!-- START PANEL -->
+            <div class="panel panel-white">
+              <div class="panel-body">
+                <div class="col-md-6">
+                  <h5>[% hilt.admin.product_item.title %]</h5>
+                  <p>код продукта: p[% hilt.admin.product_item.product_id %]</p>
+                </div>
+                <div class="col-md-6">
+                  <h5>Категории</h5>
+                  <div id="ProductCategory"></div>
+                </div>
+              </div>
+              <div class="panel-body">
+
+                      <ul class="nav nav-tabs nav-tabs-linetriangle">
+                        <li class="active">
+                          <a data-toggle="tab" href="#home"><span>Основные</span></a>
+                        </li>
+                        <li class="">
+                          <a data-toggle="tab" href="#feature"><span>Характеристики</span></a>
+                        </li>
+                        <li class="">
+                          <a data-toggle="tab" href="#photo"><span>Фото</span></a>
+                        </li>
+                      </ul>
+                      
+                      <div class="tab-content">
+                        <div class="tab-pane active" id="home">
+                          [% PROCESS admin/content/product/item/tab_1.html.tt %]
+                        </div>
+                        <div class="tab-pane" id="feature">
+                           [% PROCESS admin/content/product/item/tab_2.html.tt %]
+                        </div>
+                        
+                        <div class="tab-pane" id="photo">
+                          [% PROCESS admin/content/product/item/tab_3.html.tt %]
+                        </div>
+
+                        
+                      </div>                      
+
+              </div>
+            </div>
+            <!-- END PANEL -->
+            
+            
+
+          <!-- END CONTAINER FLUID -->            
+            
+            <!-- END PLACE PAGE CONTENT HERE -->
+          </div>
+ 
+ 
+
+
+
+
+[% PROCESS admin/footer.html.tt %]

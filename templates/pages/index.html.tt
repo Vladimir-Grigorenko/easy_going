@@ -1,0 +1,97 @@
+[% USE Filter.MinifyHTML( comments => 1, html5 => 1 ) %]
+[% FILTER minify_html %]
+	
+[% PROCESS pages/default/header.html.tt %]
+
+<!-- BODY -->
+<div class="row">
+	<div class="col-md-3 sidebar-column">
+
+	[% PROCESS pages/default/blocks/megamenu3.html.tt %]
+	
+	</div>
+	<div class="col-md-9">
+
+		<div class="information-blocks">
+			<div class="latest-entries-heading">
+				<h3 class="title">Акции</h3>
+				<a class="latest-more" href="/events" >посмотреть все акции <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
+			</div>
+			
+			<div class="mozaic-banners-wrapper type-1">
+				<div class="row">
+					<div class="banner-column col-md-8">
+						
+						<div class="mozaic-swiper">
+							<div class="swiper-container swiper-swiper-unique-id-0" data-autoplay="0" data-loop="1" data-speed="500" data-center="0" data-slides-per-view="1" id="swiper-unique-id-0">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide swiper-slide-duplicate"> 
+										<div class="mozaic-banner-entry type-1" style="background-image: url(http://hilt.com.ua/admin/bindata/_0678894_image.tb.jpg);background-position:right top; background-size:contain">
+											<div class="mozaic-banner-content">
+												<h3 class="subtitle">Шара...</h3>
+												<h2 class="title">от 135 грн</h2>
+												<div class="description">Трикотажные женские топы на запах USH </div>
+												<a class="button style-5" href="#">Детали акции</a>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide swiper-slide-visible swiper-slide-active" > 
+										<div class="mozaic-banner-entry type-1" style="background-image: url(img/mozaic-banner-2_1.jpg);">
+											<div class="mozaic-banner-content">
+												<h3 class="subtitle">Imac sales</h3>
+												<h2 class="title">$599,99</h2>
+												<div class="description">Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor.</div>
+												<a class="button style-5" href="#">shop now</a>
+											</div>
+										</div>
+									</div>
+							
+							
+								</div>
+								<div class="pagination pagination-swiper-unique-id-0"><span class="swiper-pagination-switch swiper-visible-switch swiper-active-switch"></span><span class="swiper-pagination-switch"></span><span class="swiper-pagination-switch"></span></div>
+							</div>
+						</div>
+					</div>
+													
+					<div class="banner-column col-md-4">
+						<div class="row">
+							<div class="banner-column col-md-12 col-sm-6">
+								<div class="mozaic-banner-entry type-2" style="background-image: url(img/mozaic-banner-4.jpg);">
+									<div class="mozaic-banner-content">
+										<h3 class="subtitle">Iphone 5s 64GB Gold</h3>
+										<h2 class="title">12 000 грн.</h2>
+										<a class="button style-5" href="#">детальная информация</a>
+									</div>
+								</div>
+							</div>
+							<div class="banner-column col-md-12 col-sm-6">
+								<div class="mozaic-banner-entry type-2" style="background-image: url(img/mozaic-banner-5.jpg);">
+									<div class="mozaic-banner-content">
+										<h3 class="subtitle">Playstation4 + fifa15</h3>
+										<h2 class="title">13 500 грн.</h2>
+										<a class="button style-5" href="#">детальная информация</a>
+									</div>
+								</div>
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>				
+</div>
+
+
+[% PROCESS pages/default/blocks/info_1.html.tt %]
+
+[% PROCESS pages/default/blocks/banner_col3.html.tt %]
+
+[% PROCESS pages/default/blocks/last_news_col4.html.tt %]
+
+
+<!-- #BODY -->
+
+[% PROCESS pages/default/footer.html.tt %]
+
+[% END %]

@@ -1,0 +1,720 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="css/idangerous.swiper.css" rel="stylesheet" type="text/css" />
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+
+<!--[if IE 9]>
+<link href="css/ie9.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<link rel="shortcut icon" href="img/favicon-6.ico" />
+<title>Hilt.com.ua</title>
+</head>
+<body class="style-10">
+	
+<!-- LOADER -->
+<div id="loader-wrapper">
+	<div class="bubbles">
+		<div class="title">Загрузка</div>
+		<span></span>
+		<span id="bubble2"></span>
+		<span id="bubble3"></span>
+	</div>
+</div>	
+<!-- #LOADER -->
+
+
+<div id="content-block">
+	<div class="content-center fixed-header-margin">
+		
+		<!-- HEADER -->
+		<div class="header-wrapper style-0">
+			<!-- MENU -->
+				<header class="type-1">
+						<div class="header-top">
+							<div class="header-top-entry">
+								<div class="title">О нас</div>
+							</div>
+							<div class="header-top-entry">
+								<div class="title">Доставка и оплата</div>
+							</div>
+							<div class="header-top-entry">
+								<div class="title">Возвраты</div>
+							</div>
+							<div class="header-top-entry">
+								<div class="title">Для связи</div>
+							</div>
+							<div class="header-top-entry">
+								<div class="title">Партнерам</div>
+							</div>
+							<div class="header-top-entry">
+								<div class="title">Таблица размеров</div>
+							</div>
+
+							<div class="right-entries pull-right">
+								<div class="header-top-entry">
+									<div class="title"> <a class="header-functionality-entry" href="#"><i class="fa fa-copy"></i><span>10</span></a> </div>
+								</div>								
+								<div class="header-top-entry">
+									<div class="title">
+										<a href="#"><i class="fa fa-heart-o"></i><span>12</span></a>
+									</div>
+								</div>
+								<div class="header-top-entry">
+									<div class="title">
+										<a href="#" class="open-cart-popup"><i class="fa fa-shopping-cart"></i><span>Корзина:</span> <b>1 255.00</b></a>
+									</div>
+								</div>                               
+							</div>
+							
+							<div class="menu-button responsive-menu-toggle-class"><i class="fa fa-reorder"></i></div>
+							<div class="clear"></div>
+						</div>
+
+						<div class="header-middle">
+							<div class="logo-wrapper">
+								<a id="logo" href="#"><img src="img/logo_h_2.png" alt=""></a>
+							</div>
+
+							<div class="middle-entry">
+								<div class="line-entry text-center" style="margin-bottom: 20px;">
+									<font style="font-size:1.7em; font-weight: 500;"><i class="fa fa-phone"></i> +38(044) 500-16-57</font>
+								</div>
+								<div class="clear"></div>
+								<div class="row">
+									<div class="col-md-6">
+										<a href="#" class="button style-11 btn-block" style="padding: 5px;"><i class="fa fa-phone"></i> Перезвоните мне</a></div>
+									<div class="col-md-6">
+										<a href="#" class="button style-16 btn-block" style="padding: 5px;"><i class="fa fa-phone"></i> Через сайт</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="middle-entry text-center">
+								<div style="padding:.5em 0">
+									<img src="img/mob_icon/kyiv_16_16.png" alt="Київстар" title="Київстар"> <a href="tel:+380677360300"><b>+38(067) 736-03-00</b></a> <br>
+									<img src="img/mob_icon/life_16_16.png" alt="lifecell" title="lifecell"> <a href="tel:+380637570573"><b>+38(063) 757-05-73</b></a> <br>
+									<img src="img/mob_icon/vod_16_16.png" alt="Vodafone" title="Vodafone"> <a href="tel:+380953487753"><b>+38(095) 348-77-53</b></a>
+								</div>
+							</div>
+
+							<div class="middle-entry">
+								<div class="styled-form">
+									<form>
+										<div class="submit-wrapper">Найти<input type="submit" value=""></div>
+										<div class="field-wrapper">
+											<input type="text" placeholder="Что-то ищем?" value="">
+										</div>
+									</form>
+								</div>
+							</div>
+
+							<!--<div class="right-entries">
+								<div class="socials-box">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-google-plus"></i></a>
+									<a href="#"><i class="fa fa-youtube"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a>
+									<a href="#"><i class="fa fa-instagram"></i></a>
+									<a href="#"><i class="fa fa-pinterest-p"></i></a>
+								</div>
+							</div>-->
+
+						</div>
+
+						
+													
+				</header>			
+			<!--#MENU -->
+			<div class="close-header-layer"></div>			
+			<div class="clear"></div>
+		</div>
+		<!-- #HEADER -->
+
+		<!-- BODY -->
+		<div class="content-push">
+			<div class="row">
+				<div class="col-md-3 sidebar-column">
+
+							<div id="megamenu" class="information-blocks categories-border-wrapper">
+                                <div class="block-title size-3">Каталог товаров</div>
+                                <div class="accordeon">
+                                    <div class="accordeon-title">Одежда и обувь</div>
+                                    <div class="accordeon-entry">
+                                        <div class="article-container style-1">
+                                            <ul>
+                                                <li class="child">
+													<div class="accordeon">
+														<div class="accordeon-title child">Он</div>
+														<div class="accordeon-entry">
+															<div class="article-container style-1">
+																<ul>
+																		<li class="child">
+																			<div class="accordeon">
+																				<div class="accordeon-title child">Одежда</div>
+																				<div class="accordeon-entry">
+																					<div class="article-container style-1">
+																						<ul>
+																							<li>
+																								<a href="#">Куртки, плащи</a>
+																							</li>
+																						</ul>
+																					</div>
+																				</div>
+																			</div>			
+																		</li>
+																		<li class="child">
+																			<div class="accordeon">
+																				<div class="accordeon-title child">Обувь</div>
+																				<div class="accordeon-entry">
+																					<div class="article-container style-1">
+																						<ul>
+																							<li>
+																								<a href="#">Ботинки</a>
+																							</li>
+																						</ul>
+																					</div>
+																				</div>
+																			</div>			
+																		</li>																		
+																</ul>
+															</div>
+														</div>
+                                    				</div>			
+												</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="accordeon-title">Товары для дома</div>
+                                    <div class="accordeon-entry">
+                                        <div class="article-container style-1">
+                                            <ul>
+                                                <li><a href="#">Bags &amp; Accessories</a></li>
+                                                <li><a href="#">Man's Products</a></li>
+                                                <li><a href="#">Woman's Products</a></li>
+                                                <li><a href="#">Top Brands</a></li>
+                                                <li><a href="#">Special Offer</a></li>
+                                                <li><a href="#">Leather's Products</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="accordeon-title">Дача, сад, огород</div>
+                                    <div class="accordeon-entry" style="display: none;">
+                                        <div class="article-container style-1">
+                                            <ul>
+                                                <li><a href="#">Bags &amp; Accessories</a></li>
+                                                <li><a href="#">Man's Products</a></li>
+                                                <li><a href="#">Woman's Products</a></li>
+                                                <li><a href="#">Top Brands</a></li>
+                                                <li><a href="#">Special Offer</a></li>
+                                                <li><a href="#">Leather's Products</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="accordeon-title">Ювелирные украшения</div>
+                                    <div class="accordeon-entry">
+                                        <div class="article-container style-1">
+                                            <ul>
+                                                <li><a href="#">Bags &amp; Accessories</a></li>
+                                                <li><a href="#">Man's Products</a></li>
+                                                <li><a href="#">Woman's Products</a></li>
+                                                <li><a href="#">Top Brands</a></li>
+                                                <li><a href="#">Special Offer</a></li>
+                                                <li><a href="#">Leather's Products</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="accordeon-title">Красота и здоровье</div>
+                                    <div class="accordeon-entry">
+                                        <div class="article-container style-1">
+                                            <ul>
+                                                <li><a href="#">Bags &amp; Accessories</a></li>
+                                                <li><a href="#">Man's Products</a></li>
+                                                <li><a href="#">Woman's Products</a></li>
+                                                <li><a href="#">Top Brands</a></li>
+                                                <li><a href="#">Special Offer</a></li>
+                                                <li><a href="#">Leather's Products</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="accordeon-title">Техника</div>
+                                    <div class="accordeon-entry" style="display: none;">
+                                        <div class="article-container style-1">
+                                            <ul>
+                                                <li><a href="#">Bags &amp; Accessories</a></li>
+                                                <li><a href="#">Man's Products</a></li>
+                                                <li><a href="#">Woman's Products</a></li>
+                                                <li><a href="#">Top Brands</a></li>
+                                                <li><a href="#">Special Offer</a></li>
+                                                <li><a href="#">Leather's Products</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>   
+                                    <div class="accordeon-title">Товары для детей</div>
+                                    <div class="accordeon-entry" style="display: none;">
+                                        <div class="article-container style-1">
+                                            <ul>
+                                                <li><a href="#">Bags &amp; Accessories</a></li>
+                                                <li><a href="#">Man's Products</a></li>
+                                                <li><a href="#">Woman's Products</a></li>
+                                                <li><a href="#">Top Brands</a></li>
+                                                <li><a href="#">Special Offer</a></li>
+                                                <li><a href="#">Leather's Products</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>   
+                                    <div class="accordeon-title">Развитие и обучение</div>
+                                    <div class="accordeon-entry" style="display: none;">
+                                        <div class="article-container style-1">
+                                            <ul>
+                                                <li><a href="#">Bags &amp; Accessories</a></li>
+                                                <li><a href="#">Man's Products</a></li>
+                                                <li><a href="#">Woman's Products</a></li>
+                                                <li><a href="#">Top Brands</a></li>
+                                                <li><a href="#">Special Offer</a></li>
+                                                <li><a href="#">Leather's Products</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>   
+                                    <div class="accordeon-title">Хобби и Творчество</div>
+                                    <div class="accordeon-entry" style="display: none;">
+                                        <div class="article-container style-1">
+                                            <ul>
+                                                <li><a href="#">Bags &amp; Accessories</a></li>
+                                                <li><a href="#">Man's Products</a></li>
+                                                <li><a href="#">Woman's Products</a></li>
+                                                <li><a href="#">Top Brands</a></li>
+                                                <li><a href="#">Special Offer</a></li>
+                                                <li><a href="#">Leather's Products</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>   
+                                    <div class="accordeon-title">Зоотовары</div>
+                                    <div class="accordeon-entry" style="display: none;">
+                                        <div class="article-container style-1">
+                                            <ul>
+                                                <li><a href="#">Bags &amp; Accessories</a></li>
+                                                <li><a href="#">Man's Products</a></li>
+                                                <li><a href="#">Woman's Products</a></li>
+                                                <li><a href="#">Top Brands</a></li>
+                                                <li><a href="#">Special Offer</a></li>
+                                                <li><a href="#">Leather's Products</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>   
+                                    <div class="accordeon-title">Спортивные товары</div>
+                                    <div class="accordeon-entry" style="display: none;">
+                                        <div class="article-container style-1">
+                                            <ul>
+                                                <li><a href="#">Bags &amp; Accessories</a></li>
+                                                <li><a href="#">Man's Products</a></li>
+                                                <li><a href="#">Woman's Products</a></li>
+                                                <li><a href="#">Top Brands</a></li>
+                                                <li><a href="#">Special Offer</a></li>
+                                                <li><a href="#">Leather's Products</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>   
+                                </div>
+                            </div>
+
+				</div>
+				<div class="col-md-9">
+
+					<div class="information-blocks">
+						<div class="latest-entries-heading">
+							<h3 class="title">Акции</h3>
+							<a class="latest-more">посмотреть все акции <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
+						</div>
+						
+						<div class="mozaic-banners-wrapper type-1">
+							<div class="row">
+								<div class="banner-column col-md-8">
+									
+									<div class="mozaic-swiper">
+										<div class="swiper-container swiper-swiper-unique-id-0" data-autoplay="0" data-loop="1" data-speed="500" data-center="0" data-slides-per-view="1" id="swiper-unique-id-0">
+											<div class="swiper-wrapper">
+												<div class="swiper-slide swiper-slide-duplicate"> 
+													<div class="mozaic-banner-entry type-1" style="background-image: url(http://hilt.com.ua/admin/bindata/_0678894_image.tb.jpg);background-position:right top; background-size:contain">
+														<div class="mozaic-banner-content">
+															<h3 class="subtitle">USH</h3>
+															<h2 class="title">от 135 грн</h2>
+															<div class="description">Трикотажные женские топы на запах USH </div>
+															<a class="button style-5" href="#">Детали акции</a>
+														</div>
+													</div>
+												</div>
+												<div class="swiper-slide swiper-slide-visible swiper-slide-active" > 
+													<div class="mozaic-banner-entry type-1" style="background-image: url(img/mozaic-banner-2_1.jpg);">
+														<div class="mozaic-banner-content">
+															<h3 class="subtitle">Imac sales</h3>
+															<h2 class="title">$599,99</h2>
+															<div class="description">Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor.</div>
+															<a class="button style-5" href="#">shop now</a>
+														</div>
+													</div>
+												</div>
+												<div class="swiper-slide" > 
+													<div class="mozaic-banner-entry type-1" style="background-image: url(img/mozaic-banner-2_2.jpg);">
+														<div class="mozaic-banner-content">
+															<h3 class="subtitle">sony camera</h3>
+															<h2 class="title">$1299,99</h2>
+															<div class="description">Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor.</div>
+															<a class="button style-5" href="#">shop now</a>
+														</div>
+													</div>
+												</div>
+												<div class="swiper-slide" > 
+													<div class="mozaic-banner-entry type-1" style="background-image: url(img/mozaic-banner-2_3.jpg);">
+														<div class="mozaic-banner-content">
+															<h3 class="subtitle">AEG Blender</h3>
+															<h2 class="title">$2299,99</h2>
+															<div class="description">Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor.</div>
+															<a class="button style-5" href="#">shop now</a>
+														</div>
+													</div>
+												</div>
+											<div class="swiper-slide swiper-slide-duplicate"> 
+													<div class="mozaic-banner-entry type-1" style="background-image: url(img/mozaic-banner-2_1.jpg);">
+														<div class="mozaic-banner-content">
+															<h3 class="subtitle">Imac sales</h3>
+															<h2 class="title">$5599,99</h2>
+															<div class="description">Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor.</div>
+															<a class="button style-5" href="#">shop now</a>
+														</div>
+													</div>
+												</div></div>
+											<div class="pagination pagination-swiper-unique-id-0"><span class="swiper-pagination-switch swiper-visible-switch swiper-active-switch"></span><span class="swiper-pagination-switch"></span><span class="swiper-pagination-switch"></span></div>
+										</div>
+									</div>
+								</div>
+																
+								<div class="banner-column col-md-4">
+									<div class="row">
+										<div class="banner-column col-md-12 col-sm-6">
+											<div class="mozaic-banner-entry type-2" style="background-image: url(img/mozaic-banner-4.jpg);">
+												<div class="mozaic-banner-content">
+													<h3 class="subtitle">Iphone 5s 64GB Gold</h3>
+													<h2 class="title">$299,99</h2>
+													<a class="button style-5" href="#">shop now</a>
+												</div>
+											</div>
+										</div>
+										<div class="banner-column col-md-12 col-sm-6">
+											<div class="mozaic-banner-entry type-2" style="background-image: url(img/mozaic-banner-5.jpg);">
+												<div class="mozaic-banner-content">
+													<h3 class="subtitle">Playstation4 + fifa15</h3>
+													<h2 class="title">$499,99</h2>
+													<a class="button style-5" href="#">shop now</a>
+												</div>
+											</div>
+										</div>
+										<div class="clear"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>				
+			</div>
+			
+			
+			<!-- sales -->
+
+			<div class="column-article-wrapper">
+				<div class="row nopadding">
+					<div class="col-sm-4 information-entry-xs left-border nopadding">
+						<div class="column-article-entry">
+							<a href="#" class="title">Система лояльности</a>
+							<div class="description" style="font-size: 2em"><i class="fa fa-line-chart"></i></div>
+							<div class="description">Накопительная система баллов</div>
+							<a class="read-more">Детальная информация <i class="fa fa-angle-right"></i></a> 
+						</div>
+					</div>
+					<div class="col-sm-4 information-entry-xs left-border nopadding">
+						<div class="column-article-entry">
+							<a href="#" class="title">Доставка FREE</a>
+							<div class="description" style="font-size: 2em"><i class="fa fa-truck"></i></div>
+							<div class="description">При покупке товаров от 300 грн.</div>
+							<a class="read-more">Детальная информация <i class="fa fa-angle-right"></i></a> 
+						</div>
+					</div>
+					<div class="col-sm-4 information-entry-xs left-border nopadding">
+						<div class="column-article-entry">
+							<a href="#" class="title">Гарантия качества</a>
+							<div class="description" style="font-size: 2em"><i class="fa fa-thumbs-up"></i></div>
+							<div class="description">Мы гарантируем качество наших товаров.</div>							
+							<a class="read-more">Детальная информация <i class="fa fa-angle-right"></i></a> 
+						</div>
+					</div>
+				</div>
+			</div>			
+			
+			
+			<div class="row">
+				<div class="col-md-12">
+					<div class="information-blocks">
+						<div class="mozaic-banners-wrapper type-2">
+							<div class="row">
+								<div class="banner-column col-md-4 col-sm-6">
+									<a class="mozaic-banner-entry type-3" style="background-image: url(img/mozaic-banner-6.jpg);">
+										<span class="mozaic-banner-content">
+											<span class="subtitle">Category</span>
+											<span class="title">Games</span>
+											<span class="description">Lorem ipsum dolor sit amet, elit, sed do eiusmod.</span>
+										</span>
+									</a>
+								</div>
+								<div class="banner-column col-md-4 col-sm-6">
+									<a class="mozaic-banner-entry type-3" style="background-image: url(img/mozaic-banner-7.jpg);">
+										<span class="mozaic-banner-content">
+											<span class="subtitle">Category</span>
+											<span class="title">Phones</span>
+											<span class="description">Lorem ipsum dolor sit amet, elit, sed do eiusmod.</span>
+										</span>
+									</a>
+								</div>
+								<div class="banner-column col-md-4 col-sm-12">
+									<a class="mozaic-banner-entry type-3" style="background-image: url(img/mozaic-banner-8.jpg);">
+										<span class="mozaic-banner-content">
+											<span class="subtitle">Category</span>
+											<span class="title">Consoles</span>
+											<span class="description">Lorem ipsum dolor sit amet, elit, sed do eiusmod.</span>
+										</span>
+									</a>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+					</div>						
+					
+				</div>
+			</div>
+	
+						
+			<!-- #sales -->
+			
+			
+
+			<div class="information-blocks">
+				<div class="latest-entries-heading">
+					<h3 class="title">Новости</h3>
+					<a class="latest-more">Посмотреть все новости <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
+				</div>
+				<div class="products-swiper">
+					<div class="swiper-container swiper-swiper-unique-id-4 initialized pagination-hidden" data-autoplay="0" data-loop="0" data-speed="500" data-center="0" data-slides-per-view="responsive" data-xs-slides="2" data-int-slides="2" data-sm-slides="3" data-md-slides="4" data-lg-slides="4" data-add-slides="4" id="swiper-unique-id-4">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide swiper-slide-visible swiper-slide-active" > 
+								<div class="paddings-container">
+									<div class="product-slide-entry" style="max-width: 310px;">
+										<a class="product-image hover-class-1" href="#">
+											<img src="img/wide-product-6.jpg" alt="">
+											<span class="hover-label">Read More</span>
+										</a>
+										<a class="subtitle" href="#">New collection from Armiani 2013</a>
+										<div class="date">Posted 04 November 2014</div>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide swiper-slide-visible" > 
+								<div class="paddings-container">
+									<div class="product-slide-entry" style="max-width: 310px;">
+										<a class="product-image hover-class-1" href="#">
+											<img src="img/wide-product-7.jpg" alt="">
+											<span class="hover-label">Read More</span>
+										</a>
+										<a class="subtitle" href="#">New collection from Armiani 2013</a>
+										<div class="date">Posted 04 November 2014</div>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide swiper-slide-visible"> 
+								<div class="paddings-container">
+									<div class="product-slide-entry" style="max-width: 310px;">
+										<a class="product-image hover-class-1" href="#">
+											<img src="img/wide-product-8.jpg" alt="">
+											<span class="hover-label">Read More</span>
+										</a>
+										<a class="subtitle" href="#">New collection from Armiani 2013</a>
+										<div class="date">Posted 04 November 2014</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="swiper-slide swiper-slide-visible" > 
+								<div class="paddings-container">
+									<div class="product-slide-entry" style="max-width: 310px;">
+										<a class="product-image hover-class-1" href="#">
+											<img src="img/wide-product-9.jpg" alt="">
+											<span class="hover-label">Read More</span>
+										</a>
+										<a class="subtitle" href="#">New collection from Armiani 2013</a>
+										<div class="date">Posted 04 November 2014</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="pagination pagination-swiper-unique-id-4">
+							<span class="swiper-pagination-switch swiper-visible-switch swiper-active-switch"></span>
+							<span class="swiper-pagination-switch swiper-visible-switch"></span>
+							<span class="swiper-pagination-switch swiper-visible-switch"></span>
+							<span class="swiper-pagination-switch swiper-visible-switch"></span>
+						</div>
+					</div>
+				</div>
+			</div>			
+
+		</div>						
+
+		<!-- #BODY -->
+		
+		<!-- FOOTER -->
+		<div class="footer-wrapper style-10" >
+			<footer class="type-3">
+
+				<div class="footer-columns-entry">
+					<div class="row">
+						<div class="col-md-3">
+							
+							<div class="footer-description text-center">
+								<img class="footer-logo1" src="img/logo_h_2.png" alt="">
+								<hr>
+								ALL FOR LIFE
+							</div>
+							<div class="footer-address">
+								Украина, Киев
+								ул. Днепровская набережная 17а
+								<hr>
+								<font style="font-size:1.7em; font-weight: 500; padding: 20px 0;"><i class="fa fa-phone"></i> +38(044) 500-16-57</font>
+								<hr>
+								<img src="img/mob_icon/kyiv_16_16.png" alt="Київстар" title="Київстар"> <a href="tel:+380677360300"><b>+38(067) 736-03-00</b></a> <br>
+								<img src="img/mob_icon/life_16_16.png" alt="lifecell" title="lifecell"> <a href="tel:+380637570573"><b>+38(063) 757-05-73</b></a> <br>
+								<img src="img/mob_icon/vod_16_16.png" alt="Vodafone" title="Vodafone"> <a href="tel:+380953487753"><b>+38(095) 348-77-53</b></a>
+								<hr>
+								E-mail: <a href="mailto:support@hilt.com.ua">support@hilt.com.ua</a><br>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="col-md-2 col-sm-4">
+							<h3 class="column-title">HILT</h3>
+							<ul class="column">
+								<li><a href="#">О нас</a></li>
+								<li><a href="#">Доставка и оплата</a></li>
+								<li><a href="#">Возвраты</a></li>
+								<li><a href="#">Для связи</a></li>
+								<li><a href="#">Вакансии</a></li>								
+							</ul>
+							<div class="clear"></div>
+						</div>
+						<div class="col-md-2 col-sm-4">
+							<h3 class="column-title">Сервис</h3>
+							<ul class="column">
+								<li><a href="#">Презвоните мне</a></li>
+								<li><a href="#">Звонок с сайта</a></li>
+								<li><a href="#">Партнерам</a></li>
+							</ul>
+							<div class="clear"></div>
+						</div>
+						<div class="col-md-2 col-sm-4">
+							<h3 class="column-title">Информация</h3>
+							<ul class="column">
+								<li><a href="#">Пользовательское соглашение</a></li>
+								<li><a href="javascript:void(0)" class="open-table-box">Таблица размеров</a></li>
+							</ul>
+							<div class="clear"></div>
+						</div>
+						<div class="clearfix visible-sm-block"></div>
+						<div class="col-md-3">
+							<h3 class="column-title">Мы принимаем к оплате</h3>
+							<div class="footer-description">
+								<div class="payment-methods pull-left">
+									<!-- <a href="#"><img src="img/payment-method-1.png" alt="" /></a> -->
+									<a href="#"><img src="img/payment-method-2.png" alt="" /></a> 
+									<!-- <a href="#"><img src="img/payment-method-3.png" alt="" /></a><br>-->
+									<a href="#"><img src="img/payment-method-4.png" alt="" /></a> 
+									<!-- <a href="#"><img src="http://hilt.com.ua/img/online-payment-all.png" alt="" /></a> -->
+									<a href="#"><img src="img/payment-method-6.png" alt="" /></a> 
+								</div>
+							</div>
+							<div class="clear"></div>
+							<hr>
+							<h3 class="column-title">Мы в соцсетях</h3>
+							<div class="footer-description">
+								<div class="socials-box">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-google-plus"></i></a>
+									<a href="#"><i class="fa fa-youtube"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a>
+									<a href="#"><i class="fa fa-instagram"></i></a>
+									<a href="#"><i class="fa fa-pinterest-p"></i></a>
+								</div>
+							</div>
+							<div class="clear"></div>
+							<hr>
+							<h3 class="column-title">График работы</h3>							
+							<div class="line-entry" style="padding:0">
+								<i class="fa fa-clock-o" aria-hidden="true"></i> 
+								<font style=" font-weight: 600"> пн.-пт.: 9:00 - 18:00</font><br><br>
+								<i class="fa fa-clock-o" aria-hidden="true"></i> cб.-вс.: 10:00 - 18:00
+							</div>						
+						
+						</div>							
+					</div>
+				</div>
+
+				<div class="footer-bottom-navigation">
+					<div class="cell-view">
+						<div class="copyright text-center">&copy; 2013-2016 HILT. Все права защищены. Использование материалов этого сайта возможно только со ссылкой на источник.</div>
+					</div>
+				</div>
+
+			</footer>
+		</div>		
+		<!-- #FOOTER -->
+		
+	</div>
+</div>
+
+<!-- popup -->
+
+<div id="popup-box" class="cart-box overlay-popup">
+	<div class="overflow">
+		<div class="table-view">
+			<div class="cell-view">
+				<div class="close-layer"></div>
+				<div class="popup-container">
+					<div id="popup-body">
+						
+					</div>
+					<div class="clear"></div>
+					<div class="close-popup"></div>
+				</div>    					
+			</div>
+		</div>
+	</div>						
+</div>
+
+<!-- #popup -->
+
+
+
+
+<script src="js/jquery-2.1.3.min.js"></script>
+<script src="js/modernizr.js"></script> <!-- Modernizr -->
+<script src="http://malsup.github.io/jquery.blockUI.js"></script>
+<script src="js/idangerous.swiper.min.js"></script>
+<!-- custom scrollbar -->
+<script src="js/jquery.mousewheel.js"></script>
+<script src="js/jquery.jscrollpane.min.js"></script>
+<script src="js/global.js"></script>
+
+
+</body>
+</html>

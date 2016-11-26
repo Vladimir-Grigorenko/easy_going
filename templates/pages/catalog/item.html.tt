@@ -1,0 +1,273 @@
+[% USE Filter.MinifyHTML( comments => 1, html5 => 1 ) %]
+[% FILTER minify_html %]
+	
+[% PROCESS pages/default/header.html.tt %]
+			
+<div class="information-blocks">
+	<div class="row">
+		<div class="col-sm-5 col-md-5 col-lg-5 information-entry">
+
+			<!-- image slider -->
+			<div class="product-preview-box">
+				
+				<div class="swiper-container product-preview-swiper swiper-container-autoheight" data-autoplay="0" data-loop="1" data-speed="500" data-center="0" data-slides-per-view="1">
+					[% IF hilt.product_item.price.percent %]
+					<div class="product-image-label type-1"><span>-[% hilt.product_item.price.percent %]%</span></div>
+					[% END %]
+					
+					<div class="swiper-wrapper">
+	
+							[% FOR item IN hilt.product_item.images %]
+								[% IF item.w == 465 %]
+								<div class="swiper-slide">
+									<div class="product-zoom-image">
+										<img src="[% hilt.get_origin_image( item.image_id ) %]" alt="[% hilt.product_item.title %]"  data-zoom="[% hilt.get_origin_image( item.image_id ) %]" />
+									</div>
+								</div>
+								[% END %]
+							[% END %]						
+	
+						
+					</div>
+					<div class="pagination"></div>
+					<div class="product-zoom-container">
+						<div class="move-box">
+							<img class="default-image" src="/img/product-main-1.jpg" alt="" />
+							<img class="zoomed-image" src="/img/product-main-1-zoom.jpg" alt="" />
+						</div>
+						<div class="zoom-area"></div>
+					</div>
+				</div>
+				
+				<div class="swiper-hidden-edges">
+					<div class="swiper-container product-thumbnails-swiper" data-autoplay="0" data-loop="0" data-speed="500" data-center="0" data-slides-per-view="responsive" data-xs-slides="3" data-int-slides="3" data-sm-slides="3" data-md-slides="4" data-lg-slides="4" data-add-slides="4">
+						<div class="swiper-wrapper">
+							[% count = 1 %]
+							[% FOR item IN hilt.product_item.images %]
+								[% IF item.w == 192 %]
+								[% IF count == 1 %]
+									[% class = 'selected' %]
+								[% ELSE %]
+									[% class = '' %]
+								[% END %]
+								<div class="swiper-slide [% class %]">
+									<div class="paddings-container">
+										<img src="[% item.url_path %]" alt="[% hilt.product_item.title %]" />
+									</div>
+								</div>								
+								[% count = count+1 %]
+								[% END %]
+							[% END %]
+						</div>
+						<div class="pagination"></div>
+					</div>
+				</div>
+				
+				
+			
+			</div>
+	
+			
+			
+			<!-- #image slider -->
+		</div>
+		
+		<div class="col-sm-4 col-md-4 col-lg-4 information-entry">
+			<div class="product-detail-box">				
+				<h1 class="product-title">[% hilt.product_item.title %]</h1>
+				[% IF hilt.product_item.feature.Бренд %]
+				<h3 class="product-subtitle">[% hilt.product_item.feature.Бренд.0.value %]</h3>
+				[% END %]
+				<div class="row">
+					<div class="col-md-4 product-description detail-info-entry">Код: p[% hilt.product_item.product_id %]</div>
+					[% IF hilt.product_item.quantity %]
+					<div class="col-md-4 product-description detail-info-entry text-success">
+						<i class="fa fa-check" aria-hidden="true"></i> В наличии
+					</div>
+					[% ELSE %]
+					<div class="col-md-4 product-description detail-info-entry message-danger">
+						Нет в наличии
+					</div>
+					[% END %]
+					<div class="col-md-4 rating-box">
+						[% FOR r IN [1..5] %]
+							[% IF r <= hilt.product_item.rating %]
+							<div class="star"><i class="fa fa-star"></i></div>
+							[% ELSE %]
+							<div class="star"><i class="fa fa-star-o"></i></div>
+							[% END %]
+						[% END %]						
+					</div>					
+				</div>
+				[% IF hilt.product_item.description %]
+				<div class="product-description detail-info-entry">
+					[% hilt.product_item.description %]
+				</div>
+				[% END %]
+				[% IF hilt.product_item.price &&  hilt.product_item.quantity  %]
+				<div class="price detail-info-entry">
+					[% IF hilt.product_item.price.prev %]
+					<div class="prev">[% hilt.product_item.price.prev %]</div>
+					[% END %]
+					[% IF hilt.product_item.price %]
+					<div class="current">[% hilt.product_item.price.current %] грн.</div>
+					[% END %]
+				</div>
+				[% END %]
+			
+				[% IF hilt.product_item.feature.Размер %]
+				<div class="size-selector detail-info-entry">
+					<div class="block-title size-2">Размер  </div><!-- <span class="button style-16 open-table-box"> <i class="fa fa-calculator"></i> Таблица размеров</span></div> -->
+					[% FOR item IN hilt.product_item.feature.Размер %]
+						<div class="entry">[% item.value %]</div>
+					[% END %]
+					<div class="spacer"></div>
+				</div>
+				[% END %]
+				
+				[% IF hilt.product_item.feature.Цвет1 %]
+				<div class="color-selector detail-info-entry">
+					<div class="block-title size-2">Цвет</div>
+					[% FOREACH item IN hilt.product_item.feature.Цвет %]
+					<div style="background-color: [% item.sub_value %]" class="entry">[% item.value %]</div>
+					[% END %]
+					<div class="spacer"></div>
+				</div>
+				[% END %]				
+				
+				[% IF hilt.product_item.quantity %]
+				<div class="quantity-selector detail-info-entry">
+					<div class="detail-info-entry-title">Количество</div>
+					<div class="entry number-minus">&nbsp;</div>
+					<div class="entry number">1</div>
+					<div class="entry number-plus">&nbsp;</div>
+				</div>
+				[% END %]
+				
+				[% IF hilt.product_item.quantity %]
+				<div class="detail-info-entry">
+					<a class="button style-10"><i class="fa fa-shopping-cart fa-3"></i> В корзину</a>
+					<a class="button style-11"><i class="fa fa-heart"></i> В закладки</a>										
+					<div class="clear"></div>
+				</div>
+				[% END %]
+
+				<div class="share-box detail-info-entry">
+					<div class="title">Поделиться </div>
+					<div class="socials-box">
+						<a href="#"><i class="fa fa-facebook"></i></a>
+						<a href="#"><i class="fa fa-twitter"></i></a>
+						<a href="#"><i class="fa fa-google-plus"></i></a>
+						<a href="#"><i class="fa fa-youtube"></i></a>
+						<a href="#"><i class="fa fa-linkedin"></i></a>
+						<a href="#"><i class="fa fa-instagram"></i></a>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+	
+	
+		<div class="clear visible-xs visible-sm"></div>
+		
+		<div class="col-md-3 col-lg-3 information-entry product-sidebar">
+		[% IF 1==1 || hilt.product_item.sale %]
+		
+			<div class="row">
+				<div class="col-md-12 product-detail-box">
+					<div class="information-blocks production-logo">
+						<div class="background">
+							<h3 class="product-title">Акция</h3>
+							<!-- <div class="logo"><img src="http://hilt.com.ua/admin/bindata/_0697079_image2.jpg" alt=""></div> -->
+							<a href="/events/[% hilt.translit( hilt.product_item.sale.title ) %].html">[% hilt.product_item.sale.title %]</a>
+
+							<div class="article-container style-1 text-left" style="max-height: 300px; overflow: auto">
+								<hr>
+								[% hilt.product_item.sale.description %]
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			
+		[% END %]
+
+			<div class="row">
+				<div class="col-md-12 product-detail-box">
+					<h3 class="product-title">Доставка</h3>
+					<div class="information-blocks production-logo">
+						<div class="background">
+							<div class="article-container style-1 text-left">
+								<p>Изысканное украшение – это отличная изюминка для любого образа! Ведь красота в мелочах! Стразы и кристаллы будут к лицу любой девушке! Модницы в восторге!</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+        </div>
+
+				
+	</div>
+</div>
+
+<div class="information-blocks">
+	<div class="row">
+		<div class="col-md-7 information-entry product-detail-box">
+			<h5 class="product-title">Общая информация</h5>
+			<div class="product-description">
+				[% hilt.product_item.description %]
+			</div>
+			<hr>
+			<div class="clear"></div>
+
+			<!-- <h5 class="product-title">Характеристики</h5> -->
+			<div class="product-description">
+				[% IF hilt.product_item.feature %]
+					[% FOR item IN hilt.product_item.feature.pairs %]
+						[% IF item.key != 'Размер' %]
+						<div class="row">
+						<div class="col-md-5 col-sm-4 col-xs-4"><strong>[% item.key %]</strong></div>
+						<div class="col-md-7 col-sm-8 col-xs-8">
+							[% FOR sub_item IN item.value %]
+								[% sub_item.value %]
+								[% IF sub_item.sub_value && item.key != 'Цвет' %]								
+								:	
+									[% IF item.key == 'Материал' %]
+										[% sub_item.sub_value %]%
+									[% ELSE %]
+										[% sub_item.sub_value %]
+									[% END %]
+									
+									<br>
+								[% END %]
+							[% END %]
+						</div>						
+						</div>
+						[% UNLESS loop.last %]
+						<hr>
+						[% END %]
+						[% END %]					
+					[% END %]
+				[% END %]
+			</div>
+			
+		</div>		
+		<div class="col-md-5 information-entry product-detail-box">
+			<h5 class="product-title">Отзывы</h5>
+			<div class="product-description">
+				1
+			</div>			
+		</div>		
+	</div>
+</div>
+
+[% IF 1==0 %]
+[% PROCESS pages/default/blocks/related_product_col4.html.tt %]
+[% END %]
+			
+[% PROCESS pages/default/footer.html.tt %]
+
+[% END %]

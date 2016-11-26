@@ -1,0 +1,18 @@
+[% PROCESS admin/header.html.tt %]
+
+      
+      
+
+          <!-- START CONTAINER FLUID -->
+          <div class="container-fluid container-fixed-lg">
+            <!-- BEGIN PlACE PAGE CONTENT HERE -->
+            1111
+            <!-- END PLACE PAGE CONTENT HERE -->
+          </div>
+ 
+
+
+
+
+
+[% PROCESS admin/footer.html.tt %]

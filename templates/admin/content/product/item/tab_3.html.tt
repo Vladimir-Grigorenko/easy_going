@@ -1,0 +1,30 @@
+            <form enctype="multipart/form-data">
+                <div class="form-group">
+                    <input id="file-1" type="file" multiple class="file" data-overwrite-initial="false" data-min-file-count="2">
+                </div>
+                
+                <hr>
+                <div>
+                        [% FOR img IN hilt.admin.product_item.images %]
+                        [% item = hilt.get_product_image( hilt.admin.product_item.product_id, img.image_id, 192) %]
+                        [% IF item %]
+                        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                        <div class="text-center">
+                                    <img class="img-responsive" src="[% item.url_path %]"/>
+                                    <hr>
+                                    [% item.w %]  x [% item.h %]
+                                    [% medium = hilt.get_product_image( hilt.admin.product_item.product_id, img.image_id, 465) %]
+                                    [% IF medium %]
+                                    <hr><a href="[% medium.url_path %]" target="_blank">[% medium.w %]  x [% medium.h %]</a>
+                                    [% END %]
+                                    [% origin = hilt.get_origin_image( img.image_id, 'all') %]
+                                    [% IF origin %]
+                                    <hr><a href="[% origin.url_path %]" target="_blank">Оригинал</a>
+                                    [% END %]
+                        </div>           
+                        </div>
+                        [% END %]
+                        [% END %]
+                </div>
+            </form>
+            

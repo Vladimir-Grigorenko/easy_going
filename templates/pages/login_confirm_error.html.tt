@@ -1,0 +1,7 @@
+[% PROCESS pages/default/header.html.tt %]
+<div class="information-blocks">
+	<div class="container-404">
+		<div class="description">[% error %]</div>
+	</div>
+</div>
+[% PROCESS pages/default/footer.html.tt %]
